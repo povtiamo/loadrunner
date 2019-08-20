@@ -1,0 +1,9 @@
+GET /examination/paper/exerciseDetail?paperId=CCE0715200088&examType=1&paperType=0 HTTP/1.1
+Referer: http://192.168.130.65:8029/examination/api/paper/checkExamEnd
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT)
+Accept-Encoding: gzip, deflate
+Connection: Keep-Alive
+Host: 192.168.130.65:8029
+Cookie: JSESSIONID=69AF50FF3FB2F4B0A88B531F1FDE107E
+

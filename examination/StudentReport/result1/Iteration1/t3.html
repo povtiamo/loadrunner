@@ -1,0 +1,268 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>首页</title>
+	<meta charset="utf-8"/>
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link href="/examination/css/common/bootstrap.min.css?v=1564644299508" rel="stylesheet"/>
+	<link href="/examination/css/common/zTreeStyle/zTreeStyle.css?v=1564644299508" rel="stylesheet"/>
+	<link href="/examination/css/common/main_zh_cn.css?v=1564644299508" rel="stylesheet"/>
+
+	<link rel="stylesheet" href="/examination/js/lib/layer-v2.3/layer/skin/layer.css" id="layui_layer_skinlayercss">
+
+	<link href="/examination/css/common/images/favicon.ico" rel="shortcut icon" type="image/icon"/>
+
+	
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+
+
+	<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="/examination/js/base/respond/html5shiv.js"></script>
+	<script src="/examination/js/base/respond/respond.min.js"></script>
+	<![endif]-->
+	<style>
+		.underscore-template {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- header -->
+	
+
+
+
+
+
+
+
+
+
+
+
+<!-- 头部 -->
+ <div class="g-header g-stu-header">
+     <div class="container">
+         <a class="u-logo" href="/examination/page/student/main"><img src="/examination/css/common/images/logo2.png" /><span>天闻云考试系统</span></a>
+         <div class="user-info">
+             <span class="user-name" title = "x202171">x202171</span>
+             <a class="user-logoff" id="logout-btn" style="display:none"><i class="ico small ico-off2"></i></a>
+         </div>
+     </div>
+ </div>
+ <!-- 头部 -->
+	<!-- 主体 -->
+	
+    <!-- 主体 -->
+    <div class="container g-body" data-as="bottombox" data-param="90">
+        <!-- 考试列表标题 -->
+        <div class="g-filter-offline">
+            <h4 class="m-lb-tit">考试列表</h4>
+            <div class="pull-right m-filter-offline">
+                <div>
+                    <label>考试类型</label>
+                    <select class="f-w100 js-sel-examtype">
+                        <option value="-1">全部</option>
+                        <option value="1">在线考试</option>
+                        <option value="2">线下考试</option>
+                    </select>
+                </div>
+                <div>
+                    <label>考试科目</label>
+                    <select class="f-w100 js-sel-subject">
+                        <option value="-1">全部</option>
+                    </select>
+                </div>
+                <div class="input-group u-search">
+                    <input type="text" class="form-control" placeholder="请输入考试名称">
+                    <span class="input-group-addon"><i class="ico ico-search"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 考试列表内容 -->
+        <ul class="row m-exam-lst exam-stu" id="tableList">
+            
+        </ul>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+        </div>
+    </div>
+    <!-- /主体 -->
+    <!--弹窗-->
+    <!-- 温馨提示2 -->
+    <div class="modal pop-small fade" data-backdrop="static" aria-hidden="false" id="tipPop1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body m-tip-pannel">
+                    <h4 id="scoreLable">考试成绩：<strong class="text-red"></strong></h4>
+                    <h4 id="noAnswerText"></h4>
+                    <div class="bg"></div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-blue large f-w90" data-dismiss="modal">确认</a>
+                    <a class="btn btn-default large f-w90" data-dismiss="modal">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/弹窗-->
+    
+    <input type="hidden" id="top_nav_current_id" value="top_nav_1_6">
+
+
+
+	<!-- footer -->
+	
+
+<!-- 页脚 -->
+<div class="g-footer">Copyright © 2008-2019 天闻数媒科技（北京）有限公司, All Rights Reserved 　　版本号V001R001C05B03</div>
+<!-- /页脚 -->
+
+	<script src="/examination/js/base/??jquery/jquery-1.12.2.js,bootstrap/bootstrap.min-3.3.5.js,jquery/jquery.ztree.core.min-3.5.23.js,jquery/jquery.ztree.exhide.min.js,underscore/underscore.js"></script>
+	<script src="/examination/js/lib/layer-v2.3/layer/layer.js"></script>
+	<script src="/examination/js/base/My97DatePicker/WdatePicker.js"></script>
+
+	<script src="/examination/js/base/??seajs/2.2.3/sea.min.js,seajs/2.2.3/seajs-combo.min.js,twui.js"></script>
+
+	<script type="text/javascript">
+		//服务器时间
+		window['serverTime'] = 1564653490978;
+		window['CONTEXT_PATH'] = '/examination';
+		window['BASE_URL'] = 'http://192.168.130.65:8029/examination';
+		window['CONTEXT_URL'] = '/examination' + '/';
+		window['BASE_USER_LANGUAGE'] = 'zh_cn';
+		window['DOWNLOADURL'] = 'http://192.168.130.65:8029/examination/examdls/download' + '?filePath=';
+		window['currentPageFunctionIds'] = '';
+		var DOWNLOAD_PATH = 'http://192.168.130.65:8029/download_examination/';
+
+		seajs.config({
+			base: "/examination/js/",
+			map: [
+				[/^(.*\.(?:css|js))(.*)$/i, '$1?v=1564644299508']
+			]
+		});
+		seajs.use(['base/core/common', 'lang/twdev/zh_cn','lang/examination/zh_cn', 'base/core/webapp', 'base/core/promote', 'base/core/promote_zsx']);
+	</script>
+
+
+
+	<!-- 拦截器配合 js 处理, 操作性隐藏于显示 -->
+	<script>
+		var functionIds = window['currentPageFunctionIds'] ? window['currentPageFunctionIds'].split(',') : [];
+		var getFunctionIdMap = function () {
+			if(!window['functionIdMap']) {
+				window['functionIdMap'] = {};
+				$(functionIds).each(function (idx, item) {
+					window['functionIdMap'][item] = item;
+				});
+			}
+			return window['functionIdMap'];
+		};
+
+		/**
+		 * 批量隐藏没有权限的操作性
+		 */
+		window.batchHideFunctions = function () {
+			$('[id^=function_]').each(function () {
+				var $this = $(this);
+				var functionId = $this.attr('id').replace('function_', '');
+				if(!getFunctionIdMap()[functionId]){
+					$this.hide();
+				}
+			})
+		};
+		/**
+		 * 改操作性是否可见
+		 * @param functionId
+		 * @returns {boolean}
+         */
+		window.isShowFunction = function(functionId) {
+			return !!getFunctionIdMap()[functionId];
+		};
+	</script>
+
+	<!-- 移动端隐藏学生端退出按钮 -->
+	<script type="text/javascript">
+		/**
+		 * 获取客户端信息
+		 */
+		var getClientInfo = function (){
+			var userAgentInfo = navigator.userAgent;
+			var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+			var agentinfo = null;
+			for (var i = 0; i < Agents.length; i++) {
+				if (userAgentInfo.indexOf(Agents[i]) > 0) { agentinfo = userAgentInfo; break; }
+			}
+			if(agentinfo){
+				return agentinfo;
+			}else{
+				return "PC";
+			}
+		};
+		$(document).ready(function(){
+			if(getClientInfo() === "PC"){
+				$("#logout-btn").show();
+			}
+		});
+	</script>
+
+	<script type="text/javascript">
+		var navName = $("#top_nav_current_id").val();
+		if (navName!=undefined){
+			$("[name='"+navName+"']").addClass("active");
+		}
+		var nav2Name = $("#top_nav2_current_id").val();
+		if (nav2Name!=undefined){
+			$("[name='"+nav2Name+"']").addClass("active");
+		}
+		nav2Name = $("#top_nav2_sch_current_id").val();
+		if (nav2Name!=undefined){
+			$("[name='"+nav2Name+"']").addClass("active");
+		}
+	</script>
+	<script type="text/javascript">
+		$("#logout-btn").bind("click", function () {
+			var confirmJson = {
+				content:"确认是否退出系统？",
+				param:{},
+				callback:function(params){
+					window.location.href = CONTEXT_PATH+"/logout";
+				}
+			};
+
+			MsgTips.showConfirmMessageBox(confirmJson);
+		});
+	</script>
+
+	<!-- body中引用的js -->
+	
+        <script type="text/javascript">
+            seajs.use("module/home/student-main");
+        </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+[t9]
+SnapshotXmlFile=snapshot_5.xml
+ContentType=text/plain
+StepName=Url: getExamResultDetail
+Total=1
+FileName1=t9.UNK
+RequestHeaderFile=t9_RequestHeader.txt
+ResponseHeaderFile=t9_ResponseHeader.txt
+RequestBodyFile=t9_RequestBody.txt
+URL1=http://192.168.130.40:8029/examination/api/inspection/onlinemark/getExamResultDetail?_=1565785844599&arrangeId=Z000010201285&paperStatusId=Z000010218759&paperResultId=Z000010877548
+[AdditionalInfo]
+IsIgnorable=1

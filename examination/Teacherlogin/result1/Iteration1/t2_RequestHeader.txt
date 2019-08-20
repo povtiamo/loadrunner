@@ -1,0 +1,9 @@
+GET /examination/page/home/main HTTP/1.1
+Referer: http://192.168.130.65:8029/examination//userlogin?_=1565075283205
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: Keep-Alive
+Host: 192.168.130.65:8029
+Cookie: JSESSIONID=9D0431DC43271FDB0EED9E2A1AFD12C3
+

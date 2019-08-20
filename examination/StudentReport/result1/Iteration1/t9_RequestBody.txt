@@ -1,0 +1,3 @@
+"{"paperResults":[{"paperId":"CCE0715200088","examPlanId":"CCE0715600000000076","examSubject":""
+"100000000550","userAnswer":"0", "useTime": "10","fileList": [],"paperStatusId":"","questionId""
+":"CCE0715201977","typeLevel":"1","typeLevelLabelId": "1","markStatus":"0"}]}"

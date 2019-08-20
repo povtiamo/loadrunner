@@ -1,0 +1,84 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>天闻云考试系统-登录</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/examination/css/common/images/favicon.ico" rel="shortcut icon" type="image/icon"/>
+    <link href="/examination/css/common/bootstrap.min.css?v=1565780358638" rel="stylesheet" type="text/css"/>
+    <link href="/examination/css/common/main_zh_cn.css?v=1565780358638" rel="stylesheet" media="all"/>
+
+</head>
+<body class="login-page">
+<!-- 顶部浏览器提示 -->
+<div class="login-toptips">
+    <img src="/examination/css/common/images/toptips.png" alt="">
+    <div class="toptipswords">
+        为了获得更好的使用体验，建议使用
+        <a href="https://pc.qq.com/detail/1/detail_2661.html">谷歌浏览器(chrome)、</a><a href="http://browser.qq.com/">QQ浏览器</a>
+        极速模式、IE10或更高版本。
+    </div>
+</div>
+     <!-- 登录页：头部 -->
+    <div class="login-header"><a class="u-logo" href="/examination/login"><img src="/examination/css/common/images/logo.png" /><span>天闻云考试系统</span></a></div>
+    
+<!-- /登录页：头部 -->
+    
+    <!-- 登录页：主体 -->
+    <div class="login-body" data-as="bottombox" data-param="90">
+        <ul class="login-box">
+            <li><h3>系统登录</h3></li>
+            <li><input id="username" type="text" placeholder="请输入用户名" /><i class="ico ico-user"></i></li>
+            <li><input id="password" type="password" placeholder="请输入密码" /><i class="ico ico-pwd"></i></li>
+            <li class="js-org-list" style="display:none">
+                <i class="u-icon2-scl"></i>
+                <select class="form-control" id="orgId" name="orgId">
+                </select>
+            </li>
+            <li class="login-code clearfix js-valid-code-content" style="display:none" >
+                <input id="validate_code" type="text" class="f-w60"/>
+		        <img class="code-img js-valid-code-img" title="验证码" alt="验证码">
+		        <a class="js-refresh-valid-code">看不清，换一张</a>
+            </li>
+            <li class="login-error"><span class="js-login-msg"></span></li>
+            <li><label class="u-checkbox"><input id="remember_pwd" type="checkbox" id="remember_pwd" ><span>记住密码</span></label></li>
+            <li><a href="javascript:void(0);" class="btn btn-blue login-btn js-login-btn">登录</a></li>
+        </ul>
+    </div>
+    <!-- /登录页：主体 -->
+    
+  	
+
+<!-- 页脚 -->
+<div class="g-footer">Copyright © 2008-2019 天闻数媒科技（北京）有限公司, All Rights Reserved 　　版本号V001R001C05B05</div>
+<!-- /页脚 --> 
+</body>
+<script>
+	var CONTEXT_PATH = '/examination' + '/';
+</script>
+<script src="/examination/js/base/??jquery/jquery-1.12.2.js,seajs/2.2.3/sea.min.js,seajs/2.2.3/seajs-combo.min.js,core/base64.js,jquery/jquery.cookie-1.4.1.min.js@1565780358638"></script>
+<script>
+	var BASE_USER_LANGUAGE = 'zh_cn';
+	
+	seajs.config({
+	    base: "/examination/js/",
+	    map: [
+	        [/^(.*\.(?:css|js))(.*)$/i, '$1@1565780358638']
+	    ]
+	});
+
+	seajs.use(['base/bootstrap/bootstrap.min', 'lang/twdev/zh_cn', 'lang/examination/zh_cn', 'base/respond/ui', 'base/core/login', 'base/core/promote']);
+</script>
+</html>

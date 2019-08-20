@@ -1,0 +1,6 @@
+HTTP/1.1 200 
+Set-Cookie: JSESSIONID=06B5D164B674C216C6D1B10F244F2369; Path=/examination; HttpOnly
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Wed, 24 Jul 2019 10:12:12 GMT
+

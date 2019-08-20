@@ -1,0 +1,9 @@
+GET /examination/page/inspection/onlinemark/marking/Z000010201285/Z000010218759/Z000010877548 HTTP/1.1
+Referer: http://192.168.130.40:8029/examination/api/inspection/onlinemark/getExamResultDetail?_=1565785844599&arrangeId=Z000010201285&paperStatusId=Z000010218759&paperResultId=Z000010877548
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: Keep-Alive
+Host: 192.168.130.40:8029
+Cookie: JSESSIONID=21CCAAE64E05470B5D78B466775C4BEA
+

@@ -1,0 +1,12 @@
+[t4]
+SnapshotXmlFile=snapshot_3.xml
+ContentType=text/plain
+StepName=Url: queryExaminationList
+Total=1
+FileName1=t4.UNK
+RequestHeaderFile=t4_RequestHeader.txt
+ResponseHeaderFile=t4_ResponseHeader.txt
+RequestBodyFile=t4_RequestBody.txt
+URL1=http://192.168.130.40:8029/examination/api/inspection/onlinemark/queryExaminationList?_=1565785844599&pageNo=1&pageSize=6&type=1
+[AdditionalInfo]
+IsIgnorable=1

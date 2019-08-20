@@ -1,0 +1,12 @@
+[t8]
+SnapshotXmlFile=snapshot_4.xml
+ContentType=text/plain
+StepName=Url: getToMarkingInfo
+Total=1
+FileName1=t8.UNK
+RequestHeaderFile=t8_RequestHeader.txt
+ResponseHeaderFile=t8_ResponseHeader.txt
+RequestBodyFile=t8_RequestBody.txt
+URL1=http://192.168.130.40:8029/examination/api/inspection/onlinemark/getToMarkingInfo?arrangeId=Z000010201285
+[AdditionalInfo]
+IsIgnorable=1

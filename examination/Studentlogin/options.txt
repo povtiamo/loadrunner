@@ -1,0 +1,9 @@
+-+
+-DCCI
+-D_IDA_XL
+-DWINNT
+-ID:\ÐÔÄÜ²âÊÔ\ÔÆ¿¼ÊÔC05\Studentlogin
+-IC:\Program Files (x86)\Hp\LoadRunner\include
+-ed:\ÐÔÄÜ²âÊÔ\ÔÆ¿¼ÊÔc05\studentlogin\\logfile.log
+d:\ÐÔÄÜ²âÊÔ\ÔÆ¿¼ÊÔc05\studentlogin\\combined_Studentlogin.c
+d:\ÐÔÄÜ²âÊÔ\ÔÆ¿¼ÊÔc05\studentlogin\\pre_cci.c

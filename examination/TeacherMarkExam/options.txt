@@ -1,0 +1,9 @@
+-+
+-DCCI
+-D_IDA_XL
+-DWINNT
+-ID:\ÐÔÄÜ²âÊÔ\ÔÆ¿¼ÊÔC05\TeacherMarkExam
+-IC:\Program Files (x86)\Hp\LoadRunner\include
+-ed:\ÐÔÄÜ²âÊÔ\ÔÆ¿¼ÊÔc05\teachermarkexam\\logfile.log
+d:\ÐÔÄÜ²âÊÔ\ÔÆ¿¼ÊÔc05\teachermarkexam\\combined_TeacherMarkExam.c
+d:\ÐÔÄÜ²âÊÔ\ÔÆ¿¼ÊÔc05\teachermarkexam\\pre_cci.c

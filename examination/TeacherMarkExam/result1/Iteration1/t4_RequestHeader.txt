@@ -1,0 +1,9 @@
+GET /examination/api/inspection/onlinemark/queryExaminationList?_=1565785844599&pageNo=1&pageSize=6&type=1 HTTP/1.1
+Referer: http://192.168.130.40:8029/examination/api/examplan/queryExamPlanInfoForPage?_=1565785844599
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: Keep-Alive
+Host: 192.168.130.40:8029
+Cookie: JSESSIONID=21CCAAE64E05470B5D78B466775C4BEA
+

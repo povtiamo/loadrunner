@@ -1,0 +1,8 @@
+HTTP/1.1 200 
+Set-Cookie: JSESSIONID=AFC1437F5E876ED92C2C577C7F20438E; Path=/examination; HttpOnly
+cache-control: public
+Content-Type: text/html;charset=UTF-8
+Content-Language: zh-CN
+Content-Length: 3494
+Date: Tue, 06 Aug 2019 07:08:16 GMT
+

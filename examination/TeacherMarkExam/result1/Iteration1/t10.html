@@ -1,0 +1,522 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>在线阅卷-填空题</title>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="/examination/css/common/bootstrap.min.css?v=1565780358638" rel="stylesheet"/>
+    <link rel="stylesheet" href="/examination/js/lib/layer-v2.3/layer/skin/layer.css" id="layui_layer_skinlayercss">
+
+    <link href="/examination/css/common/images/favicon.ico" rel="shortcut icon" type="image/icon"/>
+
+    
+    <link href="/examination/css/common/main_zh_cn.css?v=1565780358638" rel="stylesheet"/>
+    <link rel="stylesheet" href="/examination/js/lib/layer-v2.3/layer/skin/layer.css" id="layui_layer_skinlayercss">
+    
+
+
+    <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/examination/js/base/respond/html5shiv.js"></script>
+    <script src="/examination/js/base/respond/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .underscore-template {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 主体 -->
+
+
+
+<!-- 主内容 -->
+<div class="container-fluid g-body-fluid" data-as="bottombox" data-param="30">
+    <input type="hidden" class="js-input-exam-type" value="1" />
+    <!-- 面包屑 -->
+    <ul class="m-crm">
+        <li><a href="/examination/page/inspection/main#2">阅卷管理</a></li>
+        <li class="active">在线阅卷</li>
+    </ul>
+    <!-- /面包屑 -->
+    <div class="g-box" data-as="bottombox" data-param="30">
+        <div class="m-box-header number">
+            <a href="javascript:void(0);" class="exam-status-pre"><i class="ico ico-left3"></i></a>第 &nbsp;
+            
+            <div class="m-nav-num js-btn-correction">
+                <span id="paperNumber"></span>&nbsp;
+                <span class="ico small ico-dropdown"></span>
+            </div>
+            份试卷<a href="javascript:void(0);" class="exam-status-next"><i class="ico ico-right3"></i></a>
+            
+            <div class="m-progress-grade pull-right">
+                当前进度：
+                <div class="progress u-progress"><div class="progress-bar" style="width: 30%;"></div></div>
+                <span class="progress-num purple">...</span><span class="progress-base t-c9">/...</span>
+            </div>
+
+            <div class="m-correction-list">
+                <ul class="header">
+                    <li>
+                        <div class="id"><strong>编号</strong></div>
+                        <div class="date"><strong>批改时间</strong></div>
+                    </li>
+                </ul>
+                <ul id="correctionListUl">
+                </ul>
+                <div class="m-pagination">
+                    <a class="first"></a>
+                    <a class="prev"></a>
+                    <input type="text" value="1" class="txt-page-num" />
+                    <a class="btn-go">GO</a>
+                    <a class="next"></a>
+                    <a class="last"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-tablebox gread">
+            <div class="first-col">
+                <div class="m-box-header2">
+                    <h3 class="pull-left">学生答案</h3>
+                    <div class="pull-right f-pt7">
+                        <a class="btn btn-white js-btn-showquestiontitle">显示题干</a>
+                        
+                    </div>
+                    <a class="js-show-allsubject pull-right" style="margin-right: 30px;margin-top: 1px; color:#333;">按空批改 <i class="u-ico-radio"></i></a>
+                    <!-- 题干 -->
+                    <div class="m-questiontitle">
+                        <div class="m-question">
+                            <div class="question-no">1.</div>
+                            <div class="question-body">
+                                <!-- 试题题目 -->
+                                <div class="question-title">
+                                    <span class="question-score" default="( 分)">--</span>
+                                    <span class="question-type">[填空题]</span>
+                                    <div class="question-discription">中国的首都是下面哪座城市？</div>
+                                </div>
+                                <!-- /试题题目 -->
+                            </div>
+                        </div>
+                        <a class="ico ico-close3 js-btn-hidequestiontitle"></a>
+                    </div>
+                    <!-- /题干 -->
+                </div>
+                <div class="m-stuanswerbox">
+                    <ul class="m-stuanswer-list nobg exam-result-answer">
+                        
+                        
+                            <li class="m-tablebox underscore-template">
+                                <div class="first-col">({%= $index + 1 %})</div>
+                                <div class="second-col">
+                                    <span>{%=userAnswer%}</span>
+                                </div>
+                                {% if(result == '1') { %}
+                                <div class="third-col"></div>
+                                <div class="score"><i class="ico ico-iswrong2 xlarge"></i></div>
+                                {% } %}
+                                {% if(result == '2') { %}
+                                <div class="third-col"></div>
+                                <div class="score"><i class="ico ico-isright2 xlarge"></i>+{%= score %}</div>
+                                {% } %}
+                                {% if(result == '3') { %}
+                                <div class="third-col"></div>
+                                <div class="score"><i class="ico ico-halfright2 xlarge"></i>+{%= score %}</div>
+                                {% } %}
+                                {% if(result == null) { %}
+                                <div class="third-col"></div>
+                                {% } %}
+                            </li>
+                        
+                        
+                        
+                        <li class="img-mark js-img-mark"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="second-col f-w300 m-gradeNewsty">
+                <div class="m-questionno-list">
+                    <h3>题号:</h3>
+                    <a class="ico small ico-dropdown js-btn-dropdown"></a>
+                    <div class="questionno-list">
+                        <a class="u-questionno hide underscore-template {%= hasExamScanAbnormal ? 'mark': '' %} {%=finished?'finished': ''%} {%=window.paperResultId == paperResultId ? 'current' : ''%}" data-href="/examination/page/inspection/onlinemark/marking/{%=arrangeId%}/{%=paperStatusId%}/{%=paperResultId%}">{%= questionSequence %}</a>
+                    </div>
+                    <div class="questionno-dropdown js-dropdown">
+                        <a class="u-questionno underscore-template {%= hasExamScanAbnormal ? 'mark': '' %} {%=finished?'finished': ''%} {%=window.paperResultId == paperResultId ? 'current' : ''%}" data-href="/examination/page/inspection/onlinemark/marking/{%=arrangeId%}/{%=paperStatusId%}/{%=paperResultId%}">{%= questionSequence %}</a>
+                    </div>
+                </div>
+
+                <div class="m-grade-panel">
+                    <!--按空批改-->
+                    <div class="grade-upper grade-upperPd"  hidden="hidden" id="byAir">
+                        <div class="grade-all">
+                            <a class="u-grade u-right" id="another_right">余下全对</a>
+                            <a class="u-grade u-wrong" id="another_error">余下全错</a>
+                            <span class="t-c6 f-mt5 pull-right colorOrange">(满分: <i class="default-score"> </i>分)</span>
+                        </div>
+
+                        <ul class="m-rate-panel border">
+                            <li class="underscore-template">
+                                <a class="u-title-num">({%=$index+1%})
+                                    {% if(result == '1'  || result == '3') { %}
+                                    <i class="mysprite error" id="wrong_{%=$index+1%}"></i>
+                                    {%  } %}
+                                    {% if(result == '2') { %}
+                                    <i class="mysprite right" id="correct_{%=$index+1%}"></i>
+                                    {%  } %}
+                                </a>
+                                <a class="u-item right" id="right_{%=$index+1%}"><i class="mysprite right"></i></a>
+                                <a class="u-item error" id="error_{%=$index+1%}"><i class="mysprite error"></i></a>
+                            </li>
+                        </ul>
+
+                        
+                            
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            
+                        
+                        
+                            
+                            
+                            
+                                
+                                
+                                
+                            
+                        
+                        
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            
+                        
+                        
+                            
+                            
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            
+                        
+                    </div>
+                    <!--按空批改-->
+                    <!--按题批改-->
+                    <div class="grade-upper grade-upperPd" id="byTopic" style="display: none;">
+                        <div class="grade-all">
+                            <label class="u-grade large u-right w110"><input type="radio" name="r-score" value="2">满分</label>
+                            <label class="u-grade large u-wrong w110"><input type="radio" name="r-score" value="1">零分</label>
+                            <span class="t-c6 f-mt5 pull-right colorOrange">(满分: <i class="default-score"> </i>分)</span>
+
+                        </div>
+                        <div class="m-fastRate calculator">
+                            <div class="m-numberbox">
+                                <input class="text-number"  id="textNumberScore" name="score" type="text" placeholder="得分">
+                                <a><img src="/examination/css/common/images/backup.png"></a>
+                            </div>
+                            <div class="m-rateBox calculator">
+                                <a class="u-gradeSty">7</a>
+                                <a class="u-gradeSty">8</a>
+                                <a class="u-gradeSty">9</a>
+                                <a class="u-gradeSty">4</a>
+                                <a class="u-gradeSty">5</a>
+                                <a class="u-gradeSty">6</a>
+                                <a class="u-gradeSty">1</a>
+                                <a class="u-gradeSty">2</a>
+                                <a class="u-gradeSty">3</a>
+                                <a class="u-gradeSty">0</a>
+                                <a class="u-gradeSty">.</a>
+                                <div  id="scoreSubmit"><a  class="u-gradeSty activesty">提交</a></div>
+                            </div>
+                        </div>
+                        <div class="m-fastRate" hidden="hidden">
+                            <h3>快捷打分区</h3>
+                            <div class="m-rateBox">
+                                <a class="u-gradeSty">0.5</a>
+                                <a class="u-gradeSty">1</a>
+                                <a class="u-gradeSty">1.5</a>
+                                <a class="u-gradeSty">2</a>
+                                <a class="u-gradeSty">2.5</a>
+                                <a class="u-gradeSty">3</a>
+                                <a class="u-gradeSty">3.5</a>
+                                <a class="u-gradeSty">4</a>
+                                <a class="u-gradeSty">4.5</a>
+                                <a class="u-gradeSty">5</a>
+                                <a class="u-gradeSty">5.5</a>
+                                <a class="u-gradeSty">6</a>
+                                <a class="u-gradeSty">6.5</a>
+                                <a class="u-gradeSty">7</a>
+                                <a class="u-gradeSty">7.5</a>
+                                <a class="u-gradeSty">8</a>
+                                <a class="u-gradeSty">8.5</a>
+                                <a class="u-gradeSty">9</a>
+                                <a class="u-gradeSty">9.5</a>
+                                <a class="u-gradeSty">10</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--按题批改-->
+
+
+                    <div class="grade-bottom js-box">
+                        <div class="u-refer">参考答案：
+                            <div class="pull-right">
+                                <a class="ico small ico-caretright js-btn-toggle"></a>
+                            </div>
+                        </div>
+                        <div class="m-yscroll-box dn">(无)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /主内容 -->
+
+
+
+
+
+<!-- 弹窗:异常原因 -->
+<div class="modal pop-small fade modal-unusual" data-backdrop="static" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">异常原因</h4>
+            </div>
+            <div class="modal-body">
+                <div> 第<span class='current-question-no'></span>题</div>
+                <div class="unusual-reason">
+                    <label><input type="radio" name="r-unusual" checked>作答不清晰</label>
+                    <label><input type="radio" name="r-unusual">违背意识形态</label>
+                    <label><input type="radio" name="r-unusual">其他原因</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-blue large f-w90 confirm" data-dismiss="modal">确认</button>
+                <button class="btn btn-default large f-w90" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /弹窗:异常原因 -->
+
+<input type="hidden" id="top_nav_current_id" value="top_nav_1_4">
+
+
+
+
+
+<script src="/examination/js/base/??jquery/jquery-1.12.2.js,bootstrap/bootstrap.min-3.3.5.js,jquery/jquery.ztree.core.min-3.5.23.js,jquery/jquery.ztree.exhide.min.js,underscore/underscore.js"></script>
+<script src="/examination/js/lib/layer-v2.3/layer/layer.js"></script>
+<script src="/examination/js/base/My97DatePicker/WdatePicker.js"></script>
+
+<script src="/examination/js/base/??seajs/2.2.3/sea.min.js,seajs/2.2.3/seajs-combo.min.js"></script>
+
+<script type="text/javascript">
+    //服务器时间
+    window['serverTime'] = 1565785848249;
+    window['CONTEXT_PATH'] = '/examination';
+    window['FTP_PATH'] = '/data/contentftp/';
+    window['BASE_URL'] = 'http://192.168.130.40:8029/examination';
+    window['CONTEXT_URL'] = '/examination' + '/';
+    window['DOWNLOADURL'] = 'http://192.168.130.40:8029/examination/examdls/download' + '?filePath=';
+    window['BASE_USER_LANGUAGE'] = 'zh_cn';
+    window['currentPageFunctionIds'] = '';
+    var DOWNLOAD_PATH = 'http://192.168.130.40:8029/download_examination/';
+
+    seajs.config({
+        base: "/examination/js/",
+        map: [
+            [/^(.*\.(?:css|js))(.*)$/i, '$1?v=1565780358638']
+        ]
+    });
+    seajs.use(['base/core/common', 'lang/twdev/zh_cn','lang/examination/zh_cn', 'base/core/webapp', 'base/core/promote', 'base/core/promote_zsx']);
+</script>
+<script src="/examination/js/base/twui.js"></script>
+<!-- 拦截器配合 js 处理, 操作性隐藏于显示 -->
+<script>
+    var functionIds = window['currentPageFunctionIds'] ? window['currentPageFunctionIds'].split(',') : [];
+    var getFunctionIdMap = function () {
+        if (!window['functionIdMap']) {
+            window['functionIdMap'] = {};
+            $(functionIds).each(function (idx, item) {
+                window['functionIdMap'][item] = item;
+            });
+        }
+        return window['functionIdMap'];
+    };
+
+    /**
+     * 批量隐藏没有权限的操作性
+     */
+    window.batchHideFunctions = function () {
+        $('[id^=function_]').each(function () {
+            var $this = $(this);
+            var functionId = $this.attr('id').replace('function_', '');
+            if (!getFunctionIdMap()[functionId]) {
+                $this.hide();
+            }
+        })
+    };
+    /**
+     * 改操作性是否可见
+     * @param functionId
+     * @returns {boolean}
+     */
+    window.isShowFunction = function (functionId) {
+        return !!getFunctionIdMap()[functionId];
+    };
+</script>
+
+<!-- body中引用的js -->
+
+    <script type="text/javascript">
+        window['arrangeId'] = 'Z000010201285';
+        window['paperStatusId'] = 'Z000010218759';
+        window['paperResultId'] = 'Z000010877548';
+        window['questionType'] = '4';
+
+        var isEmptyCorrection=false;//获取session中的按空批改的值
+
+        //标记是否为异常卷列表进去批改页面
+        window['abnormalId'] = '';
+        var t=0;
+        //开始计时方法
+        function timedCount() {
+            t = setTimeout("timedCount()", 1000);//1000代表1000毫秒为1秒
+        }
+
+        timedCount();//页面加载开始计时,每题批改就开始计时
+        //结束计时方法
+        function stopCount() {
+            clearTimeout(t);
+            return t;
+        }
+
+
+
+        seajs.use("module/inspection/onlinemark/fill_in_the_blank");
+        //按空批改增加点击事件
+        $(".u-ico-radio").click(function(){
+            $('.u-ico-radio').toggleClass("on");
+            if($(this).hasClass('on')){
+                $("#byAir").show();//按空批改显示
+                $("#byTopic").hide();//按题批改影藏
+                isEmptyCorrection = true;
+                $.ajax({
+                    url: CONTEXT_PATH + '/api/inspection/onlinemark/checkIsEmptyCorrection',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        type: '1'
+                    },
+                    success: function (data) {}
+                });
+            }else{
+                $("#byAir").hide();//按空批改隐藏
+                $("#byTopic").show();//按题批改显示
+                isEmptyCorrection = false;
+                $.ajax({
+                    url: CONTEXT_PATH + '/api/inspection/onlinemark/checkIsEmptyCorrection',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        type: '2'
+                    },
+                    success: function (data) {}
+                });
+            }
+        });
+
+        //判断是否设置成了按空批改,true默认设置为打开按钮。
+        if(isEmptyCorrection == true){
+            $(".js-show-allsubject i").attr("class","u-ico-radio on");
+        }
+
+        $(document).ready(function () {
+
+            //显示所有题号
+            $('.js-btn-dropdown').click(function () {
+                $(this).parent().toggleClass('showmenu');
+            });
+
+            //显示题干
+            $('.js-btn-showquestiontitle').click(function () {
+                var $title = $('.m-questiontitle');
+                $title[$title.is(':visible') ? 'hide': 'show']();
+            });
+
+            //关闭题干
+            $('.js-btn-hidequestiontitle').click(function () {
+                $('.m-questiontitle').hide();
+            });
+
+            //切换查看答案
+            $('.u-refer').click(function () {
+                if ($('.js-btn-toggle').hasClass('ico-caretright')) {
+                    $('.js-btn-toggle').removeClass('ico-caretright').addClass('ico-caretleft');
+                } else if ($('.js-btn-toggle').hasClass('ico-caretleft')) {
+                    $('.js-btn-toggle').removeClass('ico-caretleft').addClass('ico-caretright');
+                }
+                $('.m-yscroll-box').slideToggle();
+
+            });
+        });
+    </script>
+
+
+</body>
+</html>

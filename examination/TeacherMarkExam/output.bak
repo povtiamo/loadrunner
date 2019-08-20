@@ -1,0 +1,97 @@
+虚拟用户脚本已从 : 2019-08-12 18:07:25 启动
+正在开始操作 vuser_init。
+WIN32 版 LoadRunner 11.0.0 的 Web Turbo 重播; 内部版本 8859 (Aug 18 2010 20:14:31)  	[MsgId: MMSG-27143]
+Run Mode: HTML  	[MsgId: MMSG-26000]
+运行时设置文件: "D:\性能测试\云考试C05\TeacherMarkExam\\default.cfg"  	[MsgId: MMSG-27141]
+vuser_init.c(10): loginId:dXNlcm5hbWU9ZW1wdHlUMTAwMSZwYXNzd29yZD0xMjM0NTY=
+vuser_init.c(11): web_save_timestamp_param("web_save_timestamp_param") 已成功  	[MsgId: MMSG-26392]
+vuser_init.c(13): 通知: 事务 "login" 已启动。
+vuser_init.c(15): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+vuser_init.c(16): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+vuser_init.c(17): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+vuser_init.c(19): web_submit_data("login") 已成功，1387 个正文字节，214 个标头字节，12 个成块开销字节  	[MsgId: MMSG-26385]
+vuser_init.c(34): 通知: 事务 "login" 以 "Pass" 状态结束 (持续时间: 0.7569 浪费的时间: 0.5957)。
+正在结束操作 vuser_init。
+正在运行 Vuser...
+正在开始迭代 1。
+警告 -27077: “每次迭代模拟一个新用户”运行时设置为“开”时，“vuser_init”节将包含 Web 函数。这可能会产生具有多次迭代的不可预测结果  	[MsgId: MWAR-27077]
+正在开始操作 Action。
+Action.c(6): 警告 -26202: 无法获取“线下性能测试”参数的值(Parameter_GetParameterExt rc=-1)  	[MsgId: MWAR-26202]
+Action.c(6): web_convert_param 最高严重级别为“warning”  	[MsgId: MMSG-26391]
+Action.c(18): 通知: 事务 "queryExaminationList" 已启动。
+Action.c(21): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(22): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(23): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(25): web_submit_data("queryExaminationList") 已成功，1256 个正文字节，128 个标头字节，12 个成块开销字节  	[MsgId: MMSG-26385]
+Action.c(39): 通知: 事务 "queryExaminationList" 以 "Pass" 状态结束 (持续时间: 0.2479 浪费的时间: 0.0320)。
+Action.c(47): 通知: 事务 "queryExaminationList" 已启动。
+Action.c(50): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(51): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(53): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(56): web_url("queryExaminationList") 已成功，1717 个正文字节，128 个标头字节，12 个成块开销字节  	[MsgId: MMSG-26385]
+Action.c(69): 通知: 事务 "queryExaminationList" 以 "Pass" 状态结束 (持续时间: 0.1748 浪费的时间: 0.0010)。
+Action.c(77): 集合 Marking_ready
+Action.c(79): 通知: 事务 "getToMarkingInfo" 已启动。
+Action.c(84): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(85): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(86): 注册 web_reg_save_param_ex 成功  	[MsgId: MMSG-26390]
+Action.c(87): 注册 web_reg_save_param_ex 成功  	[MsgId: MMSG-26390]
+Action.c(88): 注册 web_reg_save_param_ex 成功  	[MsgId: MMSG-26390]
+Action.c(90): web_url("getToMarkingInfo") 已成功，136 个正文字节，128 个标头字节，11 个成块开销字节  	[MsgId: MMSG-26385]
+Action.c(99): 通知: 事务 "getToMarkingInfo" 以 "Pass" 状态结束 (持续时间: 0.4463 浪费的时间: 0.0205)。
+Action.c(106): 通知: 事务 "getExamResultDetail" 已启动。
+Action.c(109): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(110): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(112): web_url("getExamResultDetail") 已成功，6077 个正文字节，128 个标头字节，13 个成块开销字节  	[MsgId: MMSG-26385]
+Action.c(121): 通知: 事务 "getExamResultDetail" 以 "Pass" 状态结束 (持续时间: 0.5238 浪费的时间: 0.0205)。
+Action.c(156): 通知: 事务 "PaperPage" 已启动。
+Action.c(158): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(159): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(161): 在 HTML“http://192.168.130.65:8029/examination/page/inspection/onlinemark/marking/CCE0715200070/CCE0715201856/CCE0715236832”中找到资源“http://192.168.130.65:8029/examination/css/common/bootstrap.min.css?v=1565604256338”  	[MsgId: MMSG-26659]
+Action.c(161): 在 HTML“http://192.168.130.65:8029/examination/page/inspection/onlinemark/marking/CCE0715200070/CCE0715201856/CCE0715236832”中找到资源“http://192.168.130.65:8029/examination/js/lib/layer-v2.3/layer/skin/layer.css”  	[MsgId: MMSG-26659]
+Action.c(161): 在 HTML“http://192.168.130.65:8029/examination/page/inspection/onlinemark/marking/CCE0715200070/CCE0715201856/CCE0715236832”中找到资源“http://192.168.130.65:8029/examination/css/common/main_zh_cn.css?v=1565604256338”  	[MsgId: MMSG-26659]
+Action.c(161): 在 HTML“http://192.168.130.65:8029/examination/page/inspection/onlinemark/marking/CCE0715200070/CCE0715201856/CCE0715236832”中找到资源“http://192.168.130.65:8029/examination/css/common/images/backup.png”  	[MsgId: MMSG-26659]
+Action.c(161): 在 HTML“http://192.168.130.65:8029/examination/page/inspection/onlinemark/marking/CCE0715200070/CCE0715201856/CCE0715236832”中找到资源“http://192.168.130.65:8029/examination/js/base/??jquery/jquery-1.12.2.js,bootstrap/bootstrap.min-3.3.5.js,jquery/jquery.ztree.core.min-3.5.23.js,jquery/jquery.ztree.exhide.min.js,underscore/underscore.js”  	[MsgId: MMSG-26659]
+Action.c(161): 在 HTML“http://192.168.130.65:8029/examination/page/inspection/onlinemark/marking/CCE0715200070/CCE0715201856/CCE0715236832”中找到资源“http://192.168.130.65:8029/examination/js/lib/layer-v2.3/layer/layer.js”  	[MsgId: MMSG-26659]
+Action.c(161): 在 HTML“http://192.168.130.65:8029/examination/page/inspection/onlinemark/marking/CCE0715200070/CCE0715201856/CCE0715236832”中找到资源“http://192.168.130.65:8029/examination/js/base/My97DatePicker/WdatePicker.js”  	[MsgId: MMSG-26659]
+Action.c(161): 在 HTML“http://192.168.130.65:8029/examination/page/inspection/onlinemark/marking/CCE0715200070/CCE0715201856/CCE0715236832”中找到资源“http://192.168.130.65:8029/examination/js/base/??seajs/2.2.3/sea.min.js,seajs/2.2.3/seajs-combo.min.js”  	[MsgId: MMSG-26659]
+Action.c(161): 在 HTML“http://192.168.130.65:8029/examination/page/inspection/onlinemark/marking/CCE0715200070/CCE0715201856/CCE0715236832”中找到资源“http://192.168.130.65:8029/examination/js/base/twui.js”  	[MsgId: MMSG-26659]
+Action.c(161): 警告 -26376: 在 10 个不同的页面/帧中找到请求的参数“HttpCode”。通过更为严格的 LB/RB/RelFrameId 使用 web_reg_save_param  	[MsgId: MWAR-26376]
+Action.c(161): 警告 -26373: 参数“HttpCode”已从资源保存(URL=“http://192.168.130.65:8029/examination/js/base/twui.js”)  	[MsgId: MWAR-26373]
+Action.c(161): 警告 -26376: 在 10 个不同的页面/帧中找到请求的参数“result”。通过更为严格的 LB/RB/RelFrameId 使用 web_reg_save_param  	[MsgId: MWAR-26376]
+Action.c(161): 警告 -26373: 参数“result”已从资源保存(URL=“http://192.168.130.65:8029/examination/js/base/twui.js”)  	[MsgId: MWAR-26373]
+Action.c(161): web_custom_request("PaperPage") 最高严重级别为“warning”，581615 个正文字节，2029 个标头字节，662 个成块开销字节  	[MsgId: MMSG-26387]
+Action.c(170): 通知: 事务 "PaperPage" 以 "Pass" 状态结束 (持续时间: 0.4583 浪费的时间: 0.0280)。
+Action.c(178): lr_think_time:1.00 秒。
+Action.c(183): 通知: 事务 "markExamResultAnswer_blank" 已启动。
+Action.c(202): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(203): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(205): web_submit_data("markExamResultAnswer_blank") 已成功，569 个正文字节，128 个标头字节，12 个成块开销字节  	[MsgId: MMSG-26385]
+Action.c(222): 通知: 事务 "markExamResultAnswer_blank" 以 "Pass" 状态结束 (持续时间: 0.6085 浪费的时间: 0.0007)。
+Action.c(232): 通知: 事务 "getToMarkingInfo_refresh" 已启动。
+Action.c(235): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(236): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(237): 注册 web_reg_save_param_ex 成功  	[MsgId: MMSG-26390]
+Action.c(238): 注册 web_reg_save_param_ex 成功  	[MsgId: MMSG-26390]
+Action.c(239): 注册 web_reg_save_param_ex 成功  	[MsgId: MMSG-26390]
+Action.c(241): web_url("getToMarkingInfo_refresh") 已成功，136 个正文字节，128 个标头字节，11 个成块开销字节  	[MsgId: MMSG-26385]
+Action.c(250): 通知: 事务 "getToMarkingInfo_refresh" 以 "Pass" 状态结束 (持续时间: 0.5168 浪费的时间: 0.0606)。
+Action.c(257): lr_think_time:1.00 秒。
+Action.c(260): 通知: 事务 "markExamResultAnswer_QandA" 已启动。
+Action.c(268): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(269): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(270): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(272): web_submit_data("markExamResultAnswer_QandA") 已成功，113 个正文字节，128 个标头字节，11 个成块开销字节  	[MsgId: MMSG-26385]
+Action.c(289): 通知: 事务 "markExamResultAnswer_QandA" 以 "Pass" 状态结束 (持续时间: 0.7097 浪费的时间: 0.0007)。
+正在结束操作 Action。
+正在结束迭代 1。
+正在结束 Vuser...
+正在开始操作 vuser_end。
+vuser_end.c(3): 通知: 事务 "logout" 已启动。
+vuser_end.c(5): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+vuser_end.c(7): 正在重定向 "http://192.168.130.65:8029/examination/logout" (重定向深度为 0)  	[MsgId: MMSG-26694]
+vuser_end.c(7): 目标位置“http://192.168.130.65:8029/examination/login”  	[MsgId: MMSG-26693]
+vuser_end.c(7): web_url("logout") 已成功，3494 个正文字节，377 个标头字节  	[MsgId: MMSG-26386]
+vuser_end.c(16): 通知: 事务 "logout" 以 "Pass" 状态结束 (持续时间: 0.1399 浪费的时间: 0.0010)。
+正在结束操作 vuser_end。
+Vuser 已终止。

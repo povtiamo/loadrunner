@@ -1,0 +1,494 @@
+﻿<?xml version="1.0"?>
+  <!DOCTYPE Report
+[
+<!ELEMENT Report (General ,(Doc|BPT)) >
+<!ATTLIST Report ver CDATA #REQUIRED tmZone CDATA #REQUIRED>
+
+<!ELEMENT General ( DocLocation ) >
+<!ATTLIST General productName CDATA #REQUIRED productVer CDATA #REQUIRED os CDATA #REQUIRED host CDATA #REQUIRED>
+
+<!ELEMENT BPT (DName,Res,DVer?,TSet?,TInst?,NodeArgs,Doc*) >
+<!ATTLIST BPT rID ID #REQUIRED >
+
+<!ELEMENT Doc (DName, Res, DVer?, TSet?, TInst?, RunType?, DT?, Step*, Action+, DIter*, Action*, Summary?, NodeArgs?)> 
+<!ATTLIST Doc rID ID #REQUIRED type (Test|BC) "Test" productName CDATA #REQUIRED BCIter CDATA #IMPLIED >
+
+<!ELEMENT RunType ( #PCDATA )>
+<!ATTLIST RunType fmStep (False|True) "False" batch (False|True) "False" upDesc (False|True) "False" upChk (False|True) "False" upAS (False|True) "False">
+
+<!ELEMENT DName ( #PCDATA ) >
+
+<!ELEMENT Res ( #PCDATA ) >
+
+<!ELEMENT DVer ( #PCDATA ) >
+
+<!ELEMENT TSet ( #PCDATA ) >
+
+<!ELEMENT TInst ( #PCDATA ) >
+
+<!ELEMENT DIter (Step?,Action+,Summary?,NodeArgs)>
+<!ATTLIST DIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT DocLocation ( #PCDATA )>
+
+<!ELEMENT Action (AName,AIter*,(Step|HtmlStep|Action)*,Summary,NodeArgs) >
+<!ATTLIST Action rID ID #REQUIRED>
+
+<!ELEMENT AIter ((Step|HtmlStep|Action)*,Summary?,NodeArgs) >
+<!ATTLIST AIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT AName ( #PCDATA ) >
+
+<!ELEMENT Step (Obj,Details,Time,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST Step rID ID #REQUIRED retval CDATA #IMPLIED>
+
+<!ELEMENT HtmlStep (HTML,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST HtmlStep rID ID #REQUIRED >
+
+<!ELEMENT Obj ( #PCDATA ) >
+<!ATTLIST Obj plainTxt (False|True) "True">
+
+<!ELEMENT Details ( #PCDATA ) >
+<!ATTLIST Details plainTxt (False|True) "True">
+
+<!ELEMENT Time ( #PCDATA ) >
+
+<!ELEMENT HTML ( #PCDATA ) >
+
+<!ELEMENT Disp ( #PCDATA ) >
+
+<!ELEMENT NodeArgs (Disp,TopPane?,BtmPane?)>
+<!ATTLIST NodeArgs eType CDATA #REQUIRED icon CDATA #REQUIRED nRep CDATA #REQUIRED filter (False|True) "True">
+<!ATTLIST NodeArgs status (Passed|Failed|Done|Warning|Information) "Done">
+<!ATTLIST NodeArgs iconSel CDATA #IMPLIED nType CDATA #IMPLIED >
+
+<!ELEMENT TopPane (Path)>
+
+<!ELEMENT BtmPane ( (Path|WR)?,ASHilite?)>
+<!ATTLIST BtmPane vType CDATA "HTML">
+
+<!ELEMENT Path ( #PCDATA ) >
+
+<!ELEMENT ASHilite ( #PCDATA ) >
+
+<!ELEMENT WR ( #PCDATA ) >
+
+<!ELEMENT DT (NodeArgs) >
+<!ATTLIST DT rID ID #REQUIRED>
+
+<!ELEMENT Summary (Param*)>
+<!ATTLIST Summary sTime CDATA #IMPLIED eTime CDATA #IMPLIED passed CDATA #IMPLIED failed CDATA #IMPLIED warnings CDATA #IMPLIED retval CDATA #IMPLIED stopped (False|True) "False" >
+
+<!ELEMENT Param (ParamName,ParamVal)+ >
+<!ATTLIST Param paramInOut (In|Out) "In">
+
+<!ELEMENT ParamName ( #PCDATA ) >
+
+<!ELEMENT ParamVal ( #PCDATA ) >
+
+]
+> <Report ver="2.0" tmZone="中国标准时间">
+<General productName="Vugen" productVer="11" os="" host="DESKTOP-1KTOVMI"><DocLocation><![CDATA[D:\性能测试\云考试C05\TeacherMarkExam]]></DocLocation></General>
+<Doc rID="T1"   productName= "Vugen"  >
+<DName><![CDATA[TeacherMarkExam]]></DName>
+<Res><![CDATA[result1]]></Res>
+<Action rID="T2">
+<AName><![CDATA[vuser_init]]></AName>
+<Step rID="T3">
+<Obj plainTxt="False" ><![CDATA[Service: Save Timestamp]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName = <STRONG><FONT COLOR=#00AF00>timeStamp</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:44]]></Time>
+<NodeArgs eType="General" icon="3" nRep="6" >
+<Disp><![CDATA[Service: Save Timestamp]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T4">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>HttpCode</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=HTTP/1.1 </FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB= 
+</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:44]]></Time>
+<NodeArgs eType="General" icon="4" nRep="7" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T5">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>result</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:44]]></Time>
+<NodeArgs eType="General" icon="4" nRep="8" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T6">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>code</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB="loginName":"</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=",</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:44]]></Time>
+<NodeArgs eType="General" icon="4" nRep="9" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T7">
+<Obj plainTxt="False" ><![CDATA[Submit Data: login]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>步骤已成功完成</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:45]]></Time>
+<NodeArgs eType="General" icon="5" nRep="10" status="Passed" >
+<Disp><![CDATA[Submit Data: login]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t1.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Summary sTime="2019/8/14 - 20:30:44" eTime="2019/8/14 - 20:30:45" passed="1" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="2" nRep="5" status="Passed" >
+<Disp><![CDATA[vuser_init 概要]]></Disp>
+</NodeArgs>
+</Action>
+<DIter rID="T8" iterID="1" >
+<Action rID="T9">
+<AName><![CDATA[Action]]></AName>
+<Step rID="T10">
+<Obj plainTxt="False" ><![CDATA[Service: Convert Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><FONT COLOR=#FF0031>创建步骤失败</CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:45]]></Time>
+<NodeArgs eType="General" icon="3" nRep="14" >
+<Disp><![CDATA[Service: Convert Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T11">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>HttpCode</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=HTTP/1.1 </FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB= 
+</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:45]]></Time>
+<NodeArgs eType="General" icon="4" nRep="15" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T12">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>result</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:45]]></Time>
+<NodeArgs eType="General" icon="4" nRep="16" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T13">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>examPlanId</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB="examPlanId":"</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=",</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:45]]></Time>
+<NodeArgs eType="General" icon="4" nRep="17" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T14">
+<Obj plainTxt="False" ><![CDATA[Submit Data: queryExaminationList]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>步骤已成功完成</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:45]]></Time>
+<NodeArgs eType="General" icon="5" nRep="18" status="Passed" >
+<Disp><![CDATA[Submit Data: queryExaminationList]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t3.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T15">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>HttpCode</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=HTTP/1.1 </FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB= 
+</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:45]]></Time>
+<NodeArgs eType="General" icon="4" nRep="19" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T16">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>result</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:45]]></Time>
+<NodeArgs eType="General" icon="4" nRep="20" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T17">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>arrangeId</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB="arrangeId":"</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB="</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:45]]></Time>
+<NodeArgs eType="General" icon="4" nRep="21" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T18">
+<Obj plainTxt="False" ><![CDATA[Url: queryExaminationList]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>步骤已成功完成</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="7" nRep="22" status="Passed" >
+<Disp><![CDATA[Url: queryExaminationList]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t4.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T19">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>HttpCode</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=HTTP/1.1 </FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB= 
+</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="4" nRep="23" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T20">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>result</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="4" nRep="24" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T21">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param Ex]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>TargetParam = <STRONG><FONT COLOR=#00AF00>arrangeId</FONT></STRONG><BR>Left Boundary = <STRONG><FONT COLOR=#00AF00>LB/RE=marking/</FONT></STRONG><BR>Right Boundary = <STRONG><FONT COLOR=#00AF00>RB/RE=/</FONT></STRONG><BR>Instance = <STRONG><FONT COLOR=#00AF00>Argument omitted</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="4" nRep="25" >
+<Disp><![CDATA[Service: Reg Save Param Ex]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T22">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param Ex]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>TargetParam = <STRONG><FONT COLOR=#00AF00>paperStatusId</FONT></STRONG><BR>Left Boundary = <STRONG><FONT COLOR=#00AF00>LB/RE=marking/.{13}/</FONT></STRONG><BR>Right Boundary = <STRONG><FONT COLOR=#00AF00>RB/RE=/</FONT></STRONG><BR>Instance = <STRONG><FONT COLOR=#00AF00>Argument omitted</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="4" nRep="26" >
+<Disp><![CDATA[Service: Reg Save Param Ex]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T23">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param Ex]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>TargetParam = <STRONG><FONT COLOR=#00AF00>paperResultId</FONT></STRONG><BR>Left Boundary = <STRONG><FONT COLOR=#00AF00>LB/RE=marking/.{13}/.{13}/</FONT></STRONG><BR>Right Boundary = <STRONG><FONT COLOR=#00AF00>RB/RE="}</FONT></STRONG><BR>Instance = <STRONG><FONT COLOR=#00AF00>Argument omitted</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="4" nRep="27" >
+<Disp><![CDATA[Service: Reg Save Param Ex]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T24">
+<Obj plainTxt="False" ><![CDATA[Url: getToMarkingInfo]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>步骤已成功完成</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="7" nRep="28" status="Passed" >
+<Disp><![CDATA[Url: getToMarkingInfo]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t8.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T25">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>HttpCode</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=HTTP/1.1 </FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB= 
+</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="4" nRep="29" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T26">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>result</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="4" nRep="30" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T27">
+<Obj plainTxt="False" ><![CDATA[Url: getExamResultDetail]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>步骤已成功完成</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="7" nRep="31" status="Passed" >
+<Disp><![CDATA[Url: getExamResultDetail]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t9.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T28">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>HttpCode</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=HTTP/1.1 </FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB= 
+</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="4" nRep="32" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T29">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>result</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:46]]></Time>
+<NodeArgs eType="General" icon="4" nRep="33" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T30">
+<Obj plainTxt="False" ><![CDATA[Custom Request: PaperPage]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>步骤已成功完成</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:47]]></Time>
+<NodeArgs eType="General" icon="8" nRep="34" status="Passed" >
+<Disp><![CDATA[Custom Request: PaperPage]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t10.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T31">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>HttpCode</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=HTTP/1.1 </FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB= 
+</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:48]]></Time>
+<NodeArgs eType="General" icon="4" nRep="35" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T32">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>result</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:48]]></Time>
+<NodeArgs eType="General" icon="4" nRep="36" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T33">
+<Obj plainTxt="False" ><![CDATA[Submit Data: markExamResultAnswer_blank]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>步骤已成功完成</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:48]]></Time>
+<NodeArgs eType="General" icon="5" nRep="37" status="Passed" >
+<Disp><![CDATA[Submit Data: markExamResultAnswer_blank]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t11.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T34">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>HttpCode</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=HTTP/1.1 </FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB= 
+</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:48]]></Time>
+<NodeArgs eType="General" icon="4" nRep="38" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T35">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>result</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:48]]></Time>
+<NodeArgs eType="General" icon="4" nRep="39" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T36">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param Ex]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>TargetParam = <STRONG><FONT COLOR=#00AF00>arrangeId</FONT></STRONG><BR>Left Boundary = <STRONG><FONT COLOR=#00AF00>LB/RE=marking/</FONT></STRONG><BR>Right Boundary = <STRONG><FONT COLOR=#00AF00>RB/RE=/</FONT></STRONG><BR>Instance = <STRONG><FONT COLOR=#00AF00>Argument omitted</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:48]]></Time>
+<NodeArgs eType="General" icon="4" nRep="40" >
+<Disp><![CDATA[Service: Reg Save Param Ex]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T37">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param Ex]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>TargetParam = <STRONG><FONT COLOR=#00AF00>paperStatusId</FONT></STRONG><BR>Left Boundary = <STRONG><FONT COLOR=#00AF00>LB/RE=marking/.{13}/</FONT></STRONG><BR>Right Boundary = <STRONG><FONT COLOR=#00AF00>RB/RE=/</FONT></STRONG><BR>Instance = <STRONG><FONT COLOR=#00AF00>Argument omitted</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:48]]></Time>
+<NodeArgs eType="General" icon="4" nRep="41" >
+<Disp><![CDATA[Service: Reg Save Param Ex]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T38">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param Ex]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>TargetParam = <STRONG><FONT COLOR=#00AF00>paperResultId</FONT></STRONG><BR>Left Boundary = <STRONG><FONT COLOR=#00AF00>LB/RE=marking/.{13}/.{13}/</FONT></STRONG><BR>Right Boundary = <STRONG><FONT COLOR=#00AF00>RB/RE="}</FONT></STRONG><BR>Instance = <STRONG><FONT COLOR=#00AF00>Argument omitted</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:48]]></Time>
+<NodeArgs eType="General" icon="4" nRep="42" >
+<Disp><![CDATA[Service: Reg Save Param Ex]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T39">
+<Obj plainTxt="False" ><![CDATA[Url: getToMarkingInfo_refresh]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>步骤已成功完成</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:48]]></Time>
+<NodeArgs eType="General" icon="7" nRep="43" status="Passed" >
+<Disp><![CDATA[Url: getToMarkingInfo_refresh]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t15.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T40">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>HttpCode</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=HTTP/1.1 </FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB= 
+</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:49]]></Time>
+<NodeArgs eType="General" icon="4" nRep="44" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T41">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>result</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:49]]></Time>
+<NodeArgs eType="General" icon="4" nRep="45" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T42">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>result</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB="isFinishedExamMarkArrange":</FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB=}</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:49]]></Time>
+<NodeArgs eType="General" icon="4" nRep="46" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T43">
+<Obj plainTxt="False" ><![CDATA[Submit Data: markExamResultAnswer_QandA]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>步骤已成功完成</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:49]]></Time>
+<NodeArgs eType="General" icon="5" nRep="47" status="Passed" >
+<Disp><![CDATA[Submit Data: markExamResultAnswer_QandA]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t16.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Summary sTime="2019/8/14 - 20:30:45" eTime="2019/8/14 - 20:30:50" passed="8" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="2" nRep="13" status="Passed" >
+<Disp><![CDATA[Action 概要]]></Disp>
+</NodeArgs>
+</Action>
+<NodeArgs eType="StartIteration" icon="6" nRep="12" status="Passed" >
+<Disp><![CDATA[TeacherMarkExam 迭代 1 (行 1)]]></Disp>
+</NodeArgs>
+</DIter>
+<Action rID="T44">
+<AName><![CDATA[vuser_end]]></AName>
+<Step rID="T45">
+<Obj plainTxt="False" ><![CDATA[Service: Reg Save Param]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>ParamName =<STRONG><FONT COLOR=#00AF00>HttpCode</FONT></STRONG><BR>左边界 = <STRONG><FONT COLOR=#00AF00>LB=HTTP/1.1 </FONT></STRONG><BR>右边界 = <STRONG><FONT COLOR=#00AF00>RB= 
+</FONT></STRONG><BR>实例 = <STRONG><FONT COLOR=#00AF00></FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:50]]></Time>
+<NodeArgs eType="General" icon="4" nRep="51" >
+<Disp><![CDATA[Service: Reg Save Param]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T46">
+<Obj plainTxt="False" ><![CDATA[Url: logout]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>步骤已成功完成</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019/8/14 - 20:30:50]]></Time>
+<NodeArgs eType="General" icon="7" nRep="52" status="Passed" >
+<Disp><![CDATA[Url: logout]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t17.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Summary sTime="2019/8/14 - 20:30:50" eTime="2019/8/14 - 20:30:50" passed="1" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="2" nRep="50" status="Passed" >
+<Disp><![CDATA[vuser_end 概要]]></Disp>
+</NodeArgs>
+</Action>
+<Summary sTime="2019/8/14 - 20:30:44" eTime="2019/8/14 - 20:30:50" passed="10" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartTest" icon="1" nRep="4" status="Passed" >
+<Disp><![CDATA[测试 TeacherMarkExam 概要]]></Disp>
+</NodeArgs>
+</Doc>
+</Report>

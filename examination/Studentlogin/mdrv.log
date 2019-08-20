@@ -1,0 +1,50 @@
+虚拟用户脚本已从 : 2019-07-24 18:12:14 启动
+正在开始操作 vuser_init。
+WINXP 版 LoadRunner 11.0.0 的 Web Turbo 重播; 内部版本 8859 (Aug 18 2010 20:14:31)  	[MsgId: MMSG-27143]
+Run Mode: HTML  	[MsgId: MMSG-26000]
+运行时设置文件: "D:\性能测试\云考试C05\Studentlogin\\default.cfg"  	[MsgId: MMSG-27141]
+正在结束操作 vuser_init。
+正在运行 Vuser...
+正在开始迭代 1。
+正在开始操作 Action。
+Action.c(7): 通知: 参数替换:参数“username”=“s_bat231603_1_1_1”
+Action.c(9): 通知: 参数替换:参数“password”=“123456”
+base64.h(42): 通知: 保存参数“loginId = dXNlcm5hbWU9c19iYXQyMzE2MDNfMV8xXzEmcGFzc3dvcmQ9MTIzNDU2”。
+Action.c(11): 通知: 参数替换:参数“loginId”=“dXNlcm5hbWU9c19iYXQyMzE2MDNfMV8xXzEmcGFzc3dvcmQ9MTIzNDU2”
+Action.c(11): loginId:dXNlcm5hbWU9c19iYXQyMzE2MDNfMV8xXzEmcGFzc3dvcmQ9MTIzNDU2
+Action.c(12): 通知: 保存参数“timeStamp = 1563963134579”。
+Action.c(12): web_save_timestamp_param("web_save_timestamp_param") 已成功  	[MsgId: MMSG-26392]
+Action.c(33): 通知: 事务 "login" 已启动。
+Action.c(35): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(36): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(37): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(39): 通知: 参数替换:参数“IP”=“192.168.130.65:8029”
+Action.c(39): 通知: 参数替换:参数“timeStamp”=“1563963134579”
+Action.c(39): 通知: 参数替换:参数“loginId”=“dXNlcm5hbWU9c19iYXQyMzE2MDNfMV8xXzEmcGFzc3dvcmQ9MTIzNDU2”
+Action.c(39): 通知: 保存参数“HttpCode = 200”。
+Action.c(39): 通知: 保存参数“code = s_bat231603_1_1_1”。
+Action.c(39): 通知: 保存参数“result = {"serverResult":{"resultCode":0,"resultMessage":null,"internalMessage":null},"userLoginInfo":{"uuid":null,"loginId":null,"password":null,"userId":"CCE0715600000000075","userType":"1","externalId":"s_bat231603_1骞寸骇1鐝\xad1瀛︾敓","loginName":"s_bat231603_1_1_1","loginEmail":null,"loginMobile":null,"idCardNo":null,"staticPassword":"a83a68c6e9967731","createTime":1563869005910,"currentLoginTime":1563872363045,"lastLoginTime":1563872362350,"lastModifyTime":1563963108881,"isEduAdmin":"0","oldIsEduAdmin":null,"isResearch":null,"cloudzoneQrcodePath":null,"status":"1","lastLockedTime":null,"lastLoginFailedTime":1563963108000,"loginFailedCount":1,"passwordType":"1","isOnline":true,"realName":"s_bat231603_1骞寸骇1鐝\xad1瀛︾敓","isLocked":false,"orgId":"TWDEVS1200000001487","orgType":null,"orgName":null,"orgEduInfo":null,"userLoginLogList":[{"logId":"CCE0715663876","userId":"CCE0715600000000075","ipAddress":null,"userName":"s_bat231603_1骞寸骇1鐝\xad1瀛︾敓","systemNumber":null,"loginTime":1563963133776,"loginOutTime":null,"systemName":null,"deviceId":null}],"cashAmount":null,"redPacketAmount":null,"attrStatus":null,"portraitUrl":null,"portraitPath":null,"fileSize":null,"childId":null,"nickName":null,"integraValue":0.0,"imgUrl":null,"integra":null,"integralOperate":"1","classId":null,"grade":null,"sex":null,"fatherPhone":null,"fatherName":null,"motherPhone":null,"motherName":null,"appId":null,"teacherType":null,"loginToken":null,"decryptLoginName":null},"goToUrl":"page/student/main"}”。
+Action.c(39): web_submit_data("login") 已成功，1492 个正文字节，214 个标头字节，12 个成块开销字节  	[MsgId: MMSG-26385]
+Action.c(51): 通知: 参数替换:参数“result”=“{"serverResult":{"resultCode":0,"resultMessage":null,"internalMessage":null},"userLoginInfo":{"uuid":null,"loginId":null,"password":null,"userId":"CCE0715600000000075","userType":"1","externalId":"s_bat231603_1骞寸骇1鐝\xad1瀛︾敓","loginName":"s_bat231603_1_1_1","loginEmail":null,"loginMobile":null,"idCardNo":null,"staticPassword":"a83a68c6e9967731","createTime":1563869005910,"currentLoginTime":1563872363045,"lastLoginTime":1563872362350,"lastModifyTime":1563963108881,"isEduAdmin":"0","oldIsEduAdmin":null,"isResearch":null,"cloudzoneQrcodePath":null,"status":"1","lastLockedTime":null,"lastLoginFailedTime":1563963108000,"loginFailedCount":1,"passwordType":"1","isOnline":true,"realName":"s_bat231603_1骞寸骇1鐝\xad1瀛︾敓","isLocked":false,"orgId":"TWDEVS1200000001487","orgType":null,"orgName":null,"orgEduInfo":null,"userLoginLogList":[{"logId":"CCE0715663876","userId":"CCE0715600000000075","ipAddress":null,"userName":"s_bat231603_1骞寸骇1鐝\xad1瀛︾敓","systemNumber":null,"loginTime":1563963133776,"loginOutTime":null,"systemName":null,"deviceId":null}],"cashAmount":null,"redPacketAmount":null,"attrStatus":null,"portraitUrl":null,"portraitPath":null,"fileSize":null,"childId":null,"nickName":null,"integraValue":0.0,"imgUrl":null,"integra":null,"integralOperate":"1","classId":null,"grade":null,"sex":null,"fatherPhone":null,"fatherName":null,"motherPhone":null,"motherName":null,"appId":null,"teacherType":null,"loginToken":null,"decryptLoginName":null},"goToUrl":"page/student/main"}”
+Action.c(51): 通知: 保存参数“result_convert = {"serverResult":{"resultCode":0,"resultMessage":null,"internalMessage":null},"userLoginInfo":{"uuid":null,"loginId":null,"password":null,"userId":"CCE0715600000000075","userType":"1","externalId":"s_bat231603_1年级1班1学生","loginName":"s_bat231603_1_1_1","loginEmail":null,"loginMobile":null,"idCardNo":null,"staticPassword":"a83a68c6e9967731","createTime":1563869005910,"currentLoginTime":1563872363045,"lastLoginTime":1563872362350,"lastModifyTime":1563963108881,"isEduAdmin":"0","oldIsEduAdmin":null,"isResearch":null,"cloudzoneQrcodePath":null,"status":"1","lastLockedTime":null,"lastLoginFailedTime":1563963108000,"loginFailedCount":1,"passwordType":"1","isOnline":true,"realName":"s_bat231603_1年级1班1学生","isLocked":false,"orgId":"TWDEVS1200000001487","orgType":null,"orgName":null,"orgEduInfo":null,"userLoginLogList":[{"logId":"CCE0715663876","userId":"CCE0715600000000075","ipAddress":null,"userName":"s_bat231603_1年级1班1学生","systemNumber":null,"loginTime":1563963133776,"loginOutTime":null,"systemName":null,"deviceId":null}],"cashAmount":null,"redPacketAmount":null,"attrStatus":null,"portraitUrl":null,"portraitPath":null,"fileSize":null,"childId":null,"nickName":null,"integraValue":0.0,"imgUrl":null,"integra":null,"integralOperate":"1","classId":null,"grade":null,"sex":null,"fatherPhone":null,"fatherName":null,"motherPhone":null,"motherName":null,"appId":null,"teacherType":null,"loginToken":null,"decryptLoginName":null},"goToUrl":"page/student/main"}\x00”。
+Action.c(53): 通知: 参数替换:参数“HttpCode”=“200”
+Action.c(53): 通知: 参数替换:参数“code”=“s_bat231603_1_1_1”
+Action.c(53): 通知: 参数替换:参数“username”=“s_bat231603_1_1_1”
+Action.c(54): 通知: 事务 "login" 以 "Pass" 状态结束 (持续时间: 0.5971 浪费的时间: 0.3861)。
+正在结束操作 Action。
+正在结束迭代 1。
+正在结束 Vuser...
+正在开始操作 vuser_end。
+vuser_end.c(3): 通知: 事务 "logout" 已启动。
+vuser_end.c(5): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+vuser_end.c(7): 通知: 参数替换:参数“IP”=“192.168.130.65:8029”
+vuser_end.c(7): 通知: 参数替换:参数“IP”=“192.168.130.65:8029”
+vuser_end.c(7): 通知: 保存参数“HttpCode = 302”。
+vuser_end.c(7): 正在重定向 "http://192.168.130.65:8029/examination/logout" (重定向深度为 0)  	[MsgId: MMSG-26694]
+vuser_end.c(7): 目标位置“http://192.168.130.65:8029/examination/login”  	[MsgId: MMSG-26693]
+vuser_end.c(7): web_url("logout") 已成功，3494 个正文字节，377 个标头字节  	[MsgId: MMSG-26386]
+vuser_end.c(15): 通知: 参数替换:参数“HttpCode”=“302”
+vuser_end.c(16): 通知: 事务 "logout" 以 "Pass" 状态结束 (持续时间: 0.1158 浪费的时间: 0.0064)。
+正在结束操作 vuser_end。
+Vuser 已终止。
+Vuser 0 (线程 11928)正常结束。"

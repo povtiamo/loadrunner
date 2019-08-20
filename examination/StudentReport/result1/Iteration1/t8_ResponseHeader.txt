@@ -1,0 +1,8 @@
+HTTP/1.1 200 
+Content-Disposition: attachment; filename="f9db30af-34e5-4822-ad19-1c4111d3992e.png"
+Content-Type: image/png;charset=UTF-8
+Transfer-Encoding: chunked
+Content-Encoding: gzip
+Vary: Accept-Encoding
+Date: Thu, 01 Aug 2019 09:58:11 GMT
+

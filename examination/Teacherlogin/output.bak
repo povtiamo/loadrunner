@@ -1,0 +1,93 @@
+虚拟用户脚本已从 : 2019-08-06 10:44:41 启动
+正在开始操作 vuser_init。
+WIN32 版 LoadRunner 11.0.0 的 Web Turbo 重播; 内部版本 8859 (Aug 18 2010 20:14:31)  	[MsgId: MMSG-27143]
+Run Mode: HTML  	[MsgId: MMSG-26000]
+运行时设置文件: "D:\性能测试\云考试C05\Teacherlogin\\default.cfg"  	[MsgId: MMSG-27141]
+正在结束操作 vuser_init。
+正在运行 Vuser...
+正在开始迭代 1。
+正在开始操作 Action。
+Action.c(6): 通知: 参数替换:参数“username”=“examT003”
+Action.c(8): 通知: 参数替换:参数“password”=“123456”
+base64.h(42): 通知: 保存参数“loginId = dXNlcm5hbWU9ZXhhbVQwMDMmcGFzc3dvcmQ9MTIzNDU2”。
+Action.c(10): 通知: 参数替换:参数“loginId”=“dXNlcm5hbWU9ZXhhbVQwMDMmcGFzc3dvcmQ9MTIzNDU2”
+Action.c(10): loginId:dXNlcm5hbWU9ZXhhbVQwMDMmcGFzc3dvcmQ9MTIzNDU2
+Action.c(11): 通知: 保存参数“timeStamp = 1565059481596”。
+Action.c(11): web_save_timestamp_param("web_save_timestamp_param") 已成功  	[MsgId: MMSG-26392]
+Action.c(32): 通知: 事务 "login" 已启动。
+Action.c(34): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(35): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(36): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(38): 通知: 参数替换:参数“IP”=“192.168.130.65:8029”
+Action.c(38): 通知: 参数替换:参数“timeStamp”=“1565059481596”
+Action.c(38): 通知: 参数替换:参数“loginId”=“dXNlcm5hbWU9ZXhhbVQwMDMmcGFzc3dvcmQ9MTIzNDU2”
+Action.c(38): 通知: 保存参数“HttpCode = 200”。
+Action.c(38): 通知: 保存参数“code = examT003”。
+Action.c(38): 通知: 保存参数“result = {"serverResult":{"resultCode":0,"resultMessage":null,"internalMessage":null},"userLoginInfo":{"uuid":null,"loginId":null,"password":null,"userId":"CCE0715600000006205","userType":"2","externalId":"examT003","loginName":"examT003","loginEmail":"","loginMobile":"","idCardNo":"","staticPassword":"a83a68c6e9967731","createTime":1564544384143,"currentLoginTime":1565059471962,"lastLoginTime":1565059435695,"lastModifyTime":1565059472786,"isEduAdmin":"0","oldIsEduAdmin":null,"isResearch":null,"cloudzoneQrcodePath":null,"status":"1","lastLockedTime":null,"lastLoginFailedTime":null,"loginFailedCount":0,"passwordType":"1","isOnline":false,"realName":"examT003","isLocked":false,"orgId":"TWDEVS1200000001487","orgType":null,"orgName":null,"orgEduInfo":null,"userLoginLogList":[{"logId":"CCE0715631482","userId":"CCE0715600000006205","ipAddress":null,"userName":"examT003","systemNumber":null,"loginTime":1565059479534,"loginOutTime":null,"systemName":null,"deviceId":null}],"cashAmount":null,"redPacketAmount":null,"attrStatus":null,"portraitUrl":null,"portraitPath":null,"fileSize":null,"childId":null,"nickName":null,"integraValue":0.0,"imgUrl":null,"integra":null,"integralOperate":"1","classId":null,"grade":null,"sex":null,"fatherPhone":null,"fatherName":null,"motherPhone":null,"motherName":null,"appId":null,"teacherType":null,"loginToken":null,"decryptLoginName":null},"goToUrl":"page/home/main"}”。
+Action.c(38): web_submit_data("login") 已成功，1400 个正文字节，214 个标头字节，12 个成块开销字节  	[MsgId: MMSG-26385]
+Action.c(50): 通知: 参数替换:参数“result”=“{"serverResult":{"resultCode":0,"resultMessage":null,"internalMessage":null},"userLoginInfo":{"uuid":null,"loginId":null,"password":null,"userId":"CCE0715600000006205","userType":"2","externalId":"examT003","loginName":"examT003","loginEmail":"","loginMobile":"","idCardNo":"","staticPassword":"a83a68c6e9967731","createTime":1564544384143,"currentLoginTime":1565059471962,"lastLoginTime":1565059435695,"lastModifyTime":1565059472786,"isEduAdmin":"0","oldIsEduAdmin":null,"isResearch":null,"cloudzoneQrcodePath":null,"status":"1","lastLockedTime":null,"lastLoginFailedTime":null,"loginFailedCount":0,"passwordType":"1","isOnline":false,"realName":"examT003","isLocked":false,"orgId":"TWDEVS1200000001487","orgType":null,"orgName":null,"orgEduInfo":null,"userLoginLogList":[{"logId":"CCE0715631482","userId":"CCE0715600000006205","ipAddress":null,"userName":"examT003","systemNumber":null,"loginTime":1565059479534,"loginOutTime":null,"systemName":null,"deviceId":null}],"cashAmount":null,"redPacketAmount":null,"attrStatus":null,"portraitUrl":null,"portraitPath":null,"fileSize":null,"childId":null,"nickName":null,"integraValue":0.0,"imgUrl":null,"integra":null,"integralOperate":"1","classId":null,"grade":null,"sex":null,"fatherPhone":null,"fatherName":null,"motherPhone":null,"motherName":null,"appId":null,"teacherType":null,"loginToken":null,"decryptLoginName":null},"goToUrl":"page/home/main"}”
+Action.c(50): 通知: 保存参数“result_convert = {"serverResult":{"resultCode":0,"resultMessage":null,"internalMessage":null},"userLoginInfo":{"uuid":null,"loginId":null,"password":null,"userId":"CCE0715600000006205","userType":"2","externalId":"examT003","loginName":"examT003","loginEmail":"","loginMobile":"","idCardNo":"","staticPassword":"a83a68c6e9967731","createTime":1564544384143,"currentLoginTime":1565059471962,"lastLoginTime":1565059435695,"lastModifyTime":1565059472786,"isEduAdmin":"0","oldIsEduAdmin":null,"isResearch":null,"cloudzoneQrcodePath":null,"status":"1","lastLockedTime":null,"lastLoginFailedTime":null,"loginFailedCount":0,"passwordType":"1","isOnline":false,"realName":"examT003","isLocked":false,"orgId":"TWDEVS1200000001487","orgType":null,"orgName":null,"orgEduInfo":null,"userLoginLogList":[{"logId":"CCE0715631482","userId":"CCE0715600000006205","ipAddress":null,"userName":"examT003","systemNumber":null,"loginTime":1565059479534,"loginOutTime":null,"systemName":null,"deviceId":null}],"cashAmount":null,"redPacketAmount":null,"attrStatus":null,"portraitUrl":null,"portraitPath":null,"fileSize":null,"childId":null,"nickName":null,"integraValue":0.0,"imgUrl":null,"integra":null,"integralOperate":"1","classId":null,"grade":null,"sex":null,"fatherPhone":null,"fatherName":null,"motherPhone":null,"motherName":null,"appId":null,"teacherType":null,"loginToken":null,"decryptLoginName":null},"goToUrl":"page/home/main"}\x00”。
+Action.c(52): 通知: 参数替换:参数“HttpCode”=“200”
+Action.c(52): 通知: 参数替换:参数“code”=“examT003”
+Action.c(52): 通知: 参数替换:参数“username”=“examT003”
+Action.c(53): 通知: 事务 "login" 以 "Pass" 状态结束 (持续时间: 0.4198 浪费的时间: 0.2862)。
+Action.c(61): 通知: 事务 "index" 已启动。
+Action.c(62): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+Action.c(65): 通知: 参数替换:参数“IP”=“192.168.130.65:8029”
+Action.c(65): 通知: 参数替换:参数“timeStamp”=“1565059481596”
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/css/common/bootstrap.min.css?v=1564708894417”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/css/common/zTreeStyle/zTreeStyle.css?v=1564708894417”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/css/common/main_zh_cn.css?v=1564708894417”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/js/lib/layer-v2.3/layer/skin/layer.css”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/css/common/bootstrap-datetimepicker.css”  	[MsgId: MMSG-26659]
+Action.c(65): 正在下载资源“http://192.168.130.65:8029/examination/css/common/bootstrap.min.css?v=1565059481596”(由参数编号 8 指定)  	[MsgId: MMSG-26577]
+Action.c(65): 正在下载资源“http://192.168.130.65:8029/examination/css/common/images/logo.png”(由参数编号 10 指定)  	[MsgId: MMSG-26577]
+Action.c(65): 正在下载资源“http://192.168.130.65:8029/examination/css/common/images/big-loading-orange1.gif”(由参数编号 12 指定)  	[MsgId: MMSG-26577]
+Action.c(65): 正在下载资源“http://192.168.130.65:8029/examination/css/common/images/icons_zh_cn.png”(由参数编号 14 指定)  	[MsgId: MMSG-26577]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/js/base/??jquery/jquery-1.12.2.js,bootstrap/bootstrap.min-3.3.5.js,jquery/jquery.ztree.core.min-3.5.23.js,jquery/jquery.ztree.exhide.min.js,underscore/underscore.js”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/js/lib/layer-v2.3/layer/layer.js”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/js/base/My97DatePicker/WdatePicker.js”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/js/base/??seajs/2.2.3/sea.min.js,seajs/2.2.3/seajs-combo.min.js”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/js/base/twui.js”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/js/base/datetimepicker/bootstrap-datepicker.js”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/js/base/datetimepicker/bootstrap-datetimepicker.min.js”  	[MsgId: MMSG-26659]
+Action.c(65): 在 HTML“http://192.168.130.65:8029/examination/page/home/main”中找到资源“http://192.168.130.65:8029/examination/js/base/datetimepicker/bootstrap-datetimepicker.zh-CN.js”  	[MsgId: MMSG-26659]
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 通知: 保存参数“HttpCode = 200”。
+Action.c(65): 警告 -26376: 在 18 个不同的页面/帧中找到请求的参数“HttpCode”。通过更为严格的 LB/RB/RelFrameId 使用 web_reg_save_param  	[MsgId: MWAR-26376]
+Action.c(65): 警告 -26373: 参数“HttpCode”已从资源保存(URL=“http://192.168.130.65:8029/examination/js/base/datetimepicker/bootstrap-datetimepicker.zh-CN.js”)  	[MsgId: MWAR-26373]
+Action.c(65): web_url("index") 最高严重级别为“warning”，877366 个正文字节，3871 个标头字节，1585 个成块开销字节  	[MsgId: MMSG-26387]
+Action.c(93): 通知: 参数替换:参数“HttpCode”=“200”
+Action.c(94): 通知: 事务 "index" 以 "Pass" 状态结束 (持续时间: 0.3179 浪费的时间: 0.0790)。
+正在结束操作 Action。
+正在结束迭代 1。
+正在结束 Vuser...
+正在开始操作 vuser_end。
+vuser_end.c(3): 通知: 事务 "logout" 已启动。
+vuser_end.c(5): 注册 web_reg_save_param 成功  	[MsgId: MMSG-26390]
+vuser_end.c(7): 通知: 参数替换:参数“IP”=“192.168.130.65:8029”
+vuser_end.c(7): 通知: 参数替换:参数“IP”=“192.168.130.65:8029”
+vuser_end.c(7): 通知: 保存参数“HttpCode = 302”。
+vuser_end.c(7): 正在重定向 "http://192.168.130.65:8029/examination/logout" (重定向深度为 0)  	[MsgId: MMSG-26694]
+vuser_end.c(7): 目标位置“http://192.168.130.65:8029/examination/login”  	[MsgId: MMSG-26693]
+vuser_end.c(7): web_url("logout") 已成功，3494 个正文字节，377 个标头字节  	[MsgId: MMSG-26386]
+vuser_end.c(15): 通知: 参数替换:参数“HttpCode”=“302”
+vuser_end.c(16): 通知: 事务 "logout" 以 "Pass" 状态结束 (持续时间: 0.4092 浪费的时间: 0.0100)。
+正在结束操作 vuser_end。
+Vuser 已终止。

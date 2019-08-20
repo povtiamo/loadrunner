@@ -1,0 +1,920 @@
+/*! Sea.js 2.2.3 | seajs.org/LICENSE.md */
+!function(a,b){function c(a){return function(b){return{}.toString.call(b)=="[object "+a+"]"}}function d(){return B++}function e(a){return a.match(E)[0]}function f(a){for(a=a.replace(F,"/");a.match(G);)a=a.replace(G,"/");return a=a.replace(H,"$1/")}function g(a){var b=a.length-1,c=a.charAt(b);return"#"===c?a.substring(0,b):".js"===a.substring(b-2)||a.indexOf("?")>0||".css"===a.substring(b-3)||"/"===c?a:a+".js"}function h(a){var b=v.alias;return b&&x(b[a])?b[a]:a}function i(a){var b=v.paths,c;return b&&(c=a.match(I))&&x(b[c[1]])&&(a=b[c[1]]+c[2]),a}function j(a){var b=v.vars;return b&&a.indexOf("{")>-1&&(a=a.replace(J,function(a,c){return x(b[c])?b[c]:a})),a}function k(a){var b=v.map,c=a;if(b)for(var d=0,e=b.length;e>d;d++){var f=b[d];if(c=z(f)?f(a)||a:a.replace(f[0],f[1]),c!==a)break}return c}function l(a,b){var c,d=a.charAt(0);if(K.test(a))c=a;else if("."===d)c=f((b?e(b):v.cwd)+a);else if("/"===d){var g=v.cwd.match(L);c=g?g[0]+a.substring(1):a}else c=v.base+a;return 0===c.indexOf("//")&&(c=location.protocol+c),c}function m(a,b){if(!a)return"";a=h(a),a=i(a),a=j(a),a=g(a);var c=l(a,b);return c=k(c)}function n(a){return a.hasAttribute?a.src:a.getAttribute("src",4)}function o(a,b,c,d){var e=T.test(a),f=M.createElement(e?"link":"script");c&&(f.charset=c),A(d)||f.setAttribute("crossorigin",d),p(f,b,e,a),e?(f.rel="stylesheet",f.href=a):(f.async=!0,f.src=a),U=f,S?R.insertBefore(f,S):R.appendChild(f),U=null}function p(a,c,d,e){function f(){a.onload=a.onerror=a.onreadystatechange=null,d||v.debug||R.removeChild(a),a=null,c()}var g="onload"in a;return!d||!W&&g?(g?(a.onload=f,a.onerror=function(){D("error",{uri:e,node:a}),f()}):a.onreadystatechange=function(){/loaded|complete/.test(a.readyState)&&f()},b):(setTimeout(function(){q(a,c)},1),b)}function q(a,b){var c=a.sheet,d;if(W)c&&(d=!0);else if(c)try{c.cssRules&&(d=!0)}catch(e){"NS_ERROR_DOM_SECURITY_ERR"===e.name&&(d=!0)}setTimeout(function(){d?b():q(a,b)},20)}function r(){if(U)return U;if(V&&"interactive"===V.readyState)return V;for(var a=R.getElementsByTagName("script"),b=a.length-1;b>=0;b--){var c=a[b];if("interactive"===c.readyState)return V=c}}function s(a){var b=[];return a.replace(Y,"").replace(X,function(a,c,d){d&&b.push(d)}),b}function t(a,b){this.uri=a,this.dependencies=b||[],this.exports=null,this.status=0,this._waitings={},this._remain=0}if(!a.seajs){var u=a.seajs={version:"2.2.3"},v=u.data={},w=c("Object"),x=c("String"),y=Array.isArray||c("Array"),z=c("Function"),A=c("Undefined"),B=0,C=v.events={};u.on=function(a,b){var c=C[a]||(C[a]=[]);return c.push(b),u},u.off=function(a,b){if(!a&&!b)return C=v.events={},u;var c=C[a];if(c)if(b)for(var d=c.length-1;d>=0;d--)c[d]===b&&c.splice(d,1);else delete C[a];return u};var D=u.emit=function(a,b){var c=C[a],d;if(c)for(c=c.slice();d=c.shift();)d(b);return u},E=/[^?#]*\//,F=/\/\.\//g,G=/\/[^/]+\/\.\.\//,H=/([^:/])\/\//g,I=/^([^/:]+)(\/.+)$/,J=/{([^{]+)}/g,K=/^\/\/.|:\//,L=/^.*?\/\/.*?\//,M=document,N=e(M.URL),O=M.scripts,P=M.getElementById("seajsnode")||O[O.length-1],Q=e(n(P)||N);u.resolve=m;var R=M.head||M.getElementsByTagName("head")[0]||M.documentElement,S=R.getElementsByTagName("base")[0],T=/\.css(?:\?|$)/i,U,V,W=+navigator.userAgent.replace(/.*(?:AppleWebKit|AndroidWebKit)\/(\d+).*/,"$1")<536;u.request=o;var X=/"(?:\\"|[^"])*"|'(?:\\'|[^'])*'|\/\*[\S\s]*?\*\/|\/(?:\\\/|[^\/\r\n])+\/(?=[^\/])|\/\/.*|\.\s*require|(?:^|[^$])\brequire\s*\(\s*(["'])(.+?)\1\s*\)/g,Y=/\\\\/g,Z=u.cache={},$,_={},ab={},bb={},cb=t.STATUS={FETCHING:1,SAVED:2,LOADING:3,LOADED:4,EXECUTING:5,EXECUTED:6};t.prototype.resolve=function(){for(var a=this,b=a.dependencies,c=[],d=0,e=b.length;e>d;d++)c[d]=t.resolve(b[d],a.uri);return c},t.prototype.load=function(){var a=this;if(!(a.status>=cb.LOADING)){a.status=cb.LOADING;var c=a.resolve();D("load",c);for(var d=a._remain=c.length,e,f=0;d>f;f++)e=t.get(c[f]),e.status<cb.LOADED?e._waitings[a.uri]=(e._waitings[a.uri]||0)+1:a._remain--;if(0===a._remain)return a.onload(),b;var g={};for(f=0;d>f;f++)e=Z[c[f]],e.status<cb.FETCHING?e.fetch(g):e.status===cb.SAVED&&e.load();for(var h in g)g.hasOwnProperty(h)&&g[h]()}},t.prototype.onload=function(){var a=this;a.status=cb.LOADED,a.callback&&a.callback();var b=a._waitings,c,d;for(c in b)b.hasOwnProperty(c)&&(d=Z[c],d._remain-=b[c],0===d._remain&&d.onload());delete a._waitings,delete a._remain},t.prototype.fetch=function(a){function c(){u.request(g.requestUri,g.onRequest,g.charset,g.crossorigin)}function d(){delete _[h],ab[h]=!0,$&&(t.save(f,$),$=null);var a,b=bb[h];for(delete bb[h];a=b.shift();)a.load()}var e=this,f=e.uri;e.status=cb.FETCHING;var g={uri:f};D("fetch",g);var h=g.requestUri||f;return!h||ab[h]?(e.load(),b):_[h]?(bb[h].push(e),b):(_[h]=!0,bb[h]=[e],D("request",g={uri:f,requestUri:h,onRequest:d,charset:z(v.charset)?v.charset(h):v.charset,crossorigin:z(v.crossorigin)?v.crossorigin(h):v.crossorigin}),g.requested||(a?a[g.requestUri]=c:c()),b)},t.prototype.exec=function(){function a(b){return t.get(a.resolve(b)).exec()}var c=this;if(c.status>=cb.EXECUTING)return c.exports;c.status=cb.EXECUTING;var e=c.uri;a.resolve=function(a){return t.resolve(a,e)},a.async=function(b,c){return t.use(b,c,e+"_async_"+d()),a};var f=c.factory,g=z(f)?f(a,c.exports={},c):f;return g===b&&(g=c.exports),delete c.factory,c.exports=g,c.status=cb.EXECUTED,D("exec",c),g},t.resolve=function(a,b){var c={id:a,refUri:b};return D("resolve",c),c.uri||u.resolve(c.id,b)},t.define=function(a,c,d){var e=arguments.length;1===e?(d=a,a=b):2===e&&(d=c,y(a)?(c=a,a=b):c=b),!y(c)&&z(d)&&(c=s(""+d));var f={id:a,uri:t.resolve(a),deps:c,factory:d};if(!f.uri&&M.attachEvent){var g=r();g&&(f.uri=g.src)}D("define",f),f.uri?t.save(f.uri,f):$=f},t.save=function(a,b){var c=t.get(a);c.status<cb.SAVED&&(c.id=b.id||a,c.dependencies=b.deps||[],c.factory=b.factory,c.status=cb.SAVED)},t.get=function(a,b){return Z[a]||(Z[a]=new t(a,b))},t.use=function(b,c,d){var e=t.get(d,y(b)?b:[b]);e.callback=function(){for(var b=[],d=e.resolve(),f=0,g=d.length;g>f;f++)b[f]=Z[d[f]].exec();c&&c.apply(a,b),delete e.callback},e.load()},t.preload=function(a){var b=v.preload,c=b.length;c?t.use(b,function(){b.splice(0,c),t.preload(a)},v.cwd+"_preload_"+d()):a()},u.use=function(a,b){return t.preload(function(){t.use(a,b,v.cwd+"_use_"+d())}),u},t.define.cmd={},a.define=t.define,u.Module=t,v.fetchedList=ab,v.cid=d,u.require=function(a){var b=t.get(t.resolve(a));return b.status<cb.EXECUTING&&(b.onload(),b.exec()),b.exports};var db=/^(.+?\/)(\?\?)?(seajs\/)+/;v.base=(Q.match(db)||["",Q])[1],v.dir=Q,v.cwd=N,v.charset="utf-8",v.preload=function(){var a=[],b=location.search.replace(/(seajs-\w+)(&|$)/g,"$1=1$2");return b+=" "+M.cookie,b.replace(/(seajs-\w+)=1/g,function(b,c){a.push(c)}),a}(),u.config=function(a){for(var b in a){var c=a[b],d=v[b];if(d&&w(d))for(var e in c)d[e]=c[e];else y(d)?c=d.concat(c):"base"===b&&("/"!==c.slice(-1)&&(c+="/"),c=l(c)),v[b]=c}return D("config",a),u}}}(this);
+!function(){function a(a){var b=a.length;if(!(2>b)){r.comboSyntax&&(t=r.comboSyntax),r.comboMaxLength&&(u=r.comboMaxLength),r.comboSuffix&&(o=r.comboSuffix),n=r.comboExcludes;for(var d=[],e=0;b>e;e++){var f=a[e];if(!s[f]){var h=p.get(f);h.status<q&&!l(f)&&!m(f)&&d.push(f)}}d.length>1&&g(c(d))}}function b(a){a.requestUri=s[a.uri]||a.uri}function c(a){return e(d(a))}function d(a){for(var b={__KEYS:[]},c=0,d=a.length;d>c;c++)for(var e=a[c].replace("://","__").split("/"),f=b,g=0,h=e.length;h>g;g++){var i=e[g];f[i]||(f[i]={__KEYS:[]},f.__KEYS.push(i)),f=f[i]}return b}function e(a){for(var b=[],c=a.__KEYS,d=0,e=c.length;e>d;d++){for(var g=c[d],h=g,i=a[g],j=i.__KEYS;1===j.length;)h+="/"+j[0],i=i[j[0]],j=i.__KEYS;j.length&&b.push([h.replace("__","://"),f(i)])}return b}function f(a){for(var b=[],c=a.__KEYS,d=0,e=c.length;e>d;d++){var g=c[d],h=f(a[g]),i=h.length;if(i)for(var j=0;i>j;j++)b.push(g+"/"+h[j]);else b.push(g)}return b}function g(a){for(var b=0,c=a.length;c>b;b++)for(var d=a[b],e=d[0]+"/",f=j(d[1]),g=0,i=f.length;i>g;g++)h(e,f[g]);return s}function h(a,b){for(var c=[],d=0,e=b.length;e>d;d++)c[d]=b[d].replace(/\?.*$/,"");var f=a+t[0]+c.join(t[1]);o&&(f+=o);var g=f.length>u;if(b.length>1&&g){var j=i(b,u-(a+t[0]).length);h(a,j[0]),h(a,j[1])}else{if(g)throw new Error("The combo url is too long: "+f);for(var d=0,e=b.length;e>d;d++)s[a+b[d]]=f}}function i(a,b){for(var c=t[1],d=a[0],e=1,f=a.length;f>e;e++)if(d+=c+a[e],d.length>b)return[a.splice(0,e),a]}function j(a){for(var b=[],c={},d=0,e=a.length;e>d;d++){var f=a[d],g=k(f);g&&(c[g]||(c[g]=[])).push(f)}for(var h in c)c.hasOwnProperty(h)&&b.push(c[h]);return b}function k(a){var b=a.lastIndexOf(".");return b>=0?a.substring(b):""}function l(a){return n?n.test?n.test(a):n(a):void 0}function m(a){var b=r.comboSyntax||["??",","],c=b[0],d=b[1];return c&&a.indexOf(c)>0||d&&a.indexOf(d)>0}var n,o,p=seajs.Module,q=p.STATUS.FETCHING,r=seajs.data,s=r.comboHash={},t=["??",","],u=2e3;if(seajs.on("load",a),seajs.on("fetch",b),r.test){var v=seajs.test||(seajs.test={});v.uris2paths=c,v.paths2hash=g}define("seajs/seajs-combo/1.0.1/seajs-combo",[],{})}();$(document).ready(function () {
+    //自定义滚动事件(减少滚动时滚动事件重复触发次数)
+    $.event.special.lazyScroll = {
+        setup: function (data) {
+            var timer = 0;
+
+            $(this).on('scroll.lazyScroll', function (event) {
+                if (!timer) {
+                    timer = setTimeout(function () {
+                        $(this).triggerHandler('lazyScroll');
+                        timer = 0;
+                    }, 150);
+                }
+            });
+        },
+        teardown: function () {
+            $(this).off('scroll.lazyScroll');
+        }
+    };
+    //自定义resize事件(减少窗口大小变化时resize事件重复触发次数)
+    $.event.special.lazyResize = {
+        setup: function (data) {
+            var timer = 0;
+
+            $(this).on('resize.lazyResize', function (event) {
+                if (!timer) {
+                    timer = setTimeout(function () {
+                        $(this).triggerHandler('lazyResize');
+                        timer = 0;
+                    }, 200);
+                }
+            });
+        },
+        teardown: function () {
+            $(this).off('resize.lazyResize');
+        }
+    };
+});
+
+var UI = {
+    //浮窗数组:记录所有打开的浮窗,最后一个指向当前激活的浮窗
+    floatList: [],
+    //函数:打开浮窗
+    openFloat: function (targetQueryString) {
+        var $floatBg = $('<div class="m-float-bg"></div>'),
+            $target = $(targetQueryString);
+
+        if ($target.length === 0) {
+            return;
+        }
+
+        //只有打开第一个浮窗时，才创建浮窗背景
+        if (UI.floatList.length === 0) {
+            $('body').append($floatBg);
+            $('body').addClass('m-float-open');
+        }
+
+        $target.show();
+        UI.floatList.push($target);
+    },
+    //函数:关闭浮窗
+    closeFloat: function () {
+        var $float = null;
+
+        //关闭当前浮窗
+        if (UI.floatList.length != 0) {
+            $float = UI.floatList.pop();
+            $float.hide();
+        }
+
+        //当最后一个浮窗关闭时，关闭浮窗背景
+        if (UI.floatList.length === 0) {
+            $('.m-float-bg').remove();
+            $('body').removeClass('m-float-open');
+        }
+    },
+    //函数:移动固定容器
+    moveFixedbox: function ($targets) {
+        var scrollTop = $(window).scrollTop(),
+            top = 0;
+
+        $targets.each(function () {
+            top = $(this).data('top');
+
+            if (scrollTop > top) {
+                $(this).css('top', 0);
+            } else {
+                $(this).css('top', top - scrollTop);
+            }
+        });
+    },
+    //可收缩或展开内容的"更多"按钮的显示与隐藏
+    switchMore: function () {
+        var $flexBox = $('.js-flexBox'),
+            lineHeight = $flexBox.find('li').outerHeight(true),
+            contentHeight = $flexBox.find('.m-xul').outerHeight();
+
+        if (contentHeight > 2 * lineHeight) {
+            $('.js-more').show();
+        } else {
+            $('.js-more').hide();
+        }
+    },
+    //初始化升缩文本的展开与收起
+    initRsText: function ($rsTexts) {
+        $rsTexts.each(function () {
+            var rstext = '',
+                dataparam = '',
+                charnum = 200,
+                subStr = '',
+                textLength = 0,
+                $riseSwitch = null,
+                $shrinkSwitch=null,
+                $temp=$('<div></div>'),
+                riseSwitchHtml = '<span class="u-rstext-switch" data-as="rstext-riseswitch">展开<span>︾</span></span>',
+                shrinkSwitchHtml = '<span class="u-rstext-switch" data-as="rstext-shrinkswitch">收起<span>︽</span></span>';
+
+            $riseSwitch = $(this).find('[data-as="rstext-riseswitch"]');
+            $shrinkSwitch = $(this).find('[data-as="rstext-shrinkswitch"]');
+
+            //如果存在自定义的展开开关，获取其对应的html
+            if ($riseSwitch.length > 0) {
+                $temp.append($riseSwitch);
+                riseSwitchHtml = $temp.html();
+            }
+
+            //如果存在自定义的关闭开关，获取其对应的html
+            if ($shrinkSwitch.length > 0) {
+                $temp = $('<div></div>');
+                $temp.append($shrinkSwitch);
+                shrinkSwitchHtml = $temp.html();
+            }
+
+            rstext = $(this).html();
+            textLength = rstext.length;
+            dataparam = $(this).data('param');
+
+            //如果指定了限制字符数且指定的字符数能转换为整数就用指定的字符数作限制字符数，否则默认最多显示200个字符
+            if (typeof dataparam != "undefined") {
+                charnum = isNaN(parseInt(dataparam)) ? 200 : parseInt(dataparam);
+            }
+
+            //仅当文本字符数大于限制字符个数时，才显示切换开关
+            if (textLength > charnum) {
+                subStr = rstext.substring(0, charnum);
+                $(this).html(subStr + '...' + riseSwitchHtml);
+            }
+
+            //单击展开开关:显示全部文字
+            $(this).on('click', '[data-as="rstext-riseswitch"]', function () {
+                var $rstext = $(this).parent();
+                $rstext.html(rstext + shrinkSwitchHtml);
+            });
+
+            //单击收起开关:截断部份文字
+            $(this).on('click', '[data-as="rstext-shrinkswitch"]', function () {
+                var $rstext = $(this).parent();
+                subStr = rstext.substring(0, charnum);
+                $rstext.html(subStr + '...' + riseSwitchHtml);
+            });
+        });
+    },
+    //初始化fixedbox的各种尺寸及保存相关尺寸
+    initSizeFixedBox: function ($fixedBox) {
+        var top = 0,
+            bottomY=0,
+            left = 0,
+            width = 0,
+            outerWidth = 0,
+            outerHeight = 0,
+            originalStyle = '',
+            xRelated = '',
+            yRelated = '',
+            marginLeft = 0,
+            $xRelated = null,
+            $yRelated = null,
+            $me = null;
+
+        if ($fixedBox === undefined) {
+            $fixedBox = $('[data-as="fixedbox"]');
+        }
+
+        $fixedBox.each(function () {
+            $me = $(this);
+
+            //以下语句与if判断都是针对浏览器resize时，fixedbox重新保存正确的尺寸值
+            $me.removeClass('m-fixedbox-top');
+            $me.removeClass('m-fixedbox-bottom');
+
+            if ($me.data('style') != undefined) {
+                originalStyle = $me.data('style');
+            } else {
+                originalStyle = $me.attr('style') ? $me.attr('style') : '';
+            }
+
+            $me.attr('style', originalStyle);
+
+            //fixedbox的position转换为fixed时，有可能会破坏右侧容器(需手动在data-x-related中指定这些元素)的布局，以下语句记录这些元素最初的margin-left值
+            xRelated = $me.data('xRelated');
+            yRelated = $me.data('yRelated');
+
+            if (xRelated != undefined) {
+                $xRelated = $(xRelated);
+
+                $xRelated.each(function () {
+                    if ($(this).data('marginLeft') === undefined) {
+                        $(this).data('marginLeft', $(this).css('margin-left'));
+                    } else {
+                        $(this).css('margin-left', $(this).data('marginLeft'));
+                    }
+                });
+            }
+
+            //fixedbox的position转换为fixed时，有可能会破坏下方容器(需手动在data-y-related中指定这些元素)的布局，以下语句记录这些元素最初的margin-top值
+            if (yRelated != undefined) {
+                $yRelated = $(yRelated);
+
+                $yRelated.each(function () {
+                    if ($(this).data('marginTop') === undefined) {
+                        $(this).data('marginTop', $(this).css('margin-top'));
+                    } else {
+                        $(this).css('margin-top', $(this).data('marginTop'));
+                    }
+                });
+            }
+
+            top = $me.offset().top;
+            bottomY = top + $me.outerHeight();
+            left = $me.offset().left;
+            width = $me.outerWidth();
+            outerWidth=$me.outerWidth(true);
+            outerHeight=$me.outerHeight(true);
+
+            //用js动态添加的fixedbox有可能不带data-as="fixedbox"属性，此行添加此属性
+            $me.attr('data-as', 'fixedbox');
+
+            //记录fixedbox在正常状态下的top值
+            $me.data('top', top);
+
+            //记录fixedbox底端的坐标
+            $me.data('bottomY', bottomY);
+
+            //记录fixedbox在正常状态下left值(为避免当容器是以float:right等指定的位置时，把该容器转换为:position:fixed时left发生变化)
+            $me.data('left', left);
+
+            //记录fixedbox在正常状态下width(为避免当容器是以百分比指定宽度时，把该容器转换为:position:fixed时宽度发生变化)
+            $me.data('width', width);
+
+            //当fixedbox从正常状态转变为position:fixed时，如果对其右边的元素的位置有影响,outerWidth中记录对影响元素左边补白的距离
+            $me.data('outerWidth',outerWidth);
+
+            //当fixedbox从正常状态转变为position:fixed时，如果对其下方的元素的位置有影响,outerHeight中记录对影响元素上边补白的距离
+            $me.data('outerHeight',outerHeight);
+
+            //记录fixedbox最初的style值，该值在浏览器resize时也不会被重新计算
+            $me.data('style', originalStyle);
+        });
+    },
+    //fixedbox影响的容器补白
+    fillRelatedBox: function ($fixedBox) {
+        var xRelated = '',
+            yRelated = '',
+            $xRelated = null,
+            $yRelated = null;
+
+        xRelated = $fixedBox.data('xRelated');
+        yRelated = $fixedBox.data('yRelated');
+
+        //为在fixedbox容器中在data-x-related属性中指定的元素左边补白
+        if (xRelated != undefined) {
+            $xRelated = $(xRelated);
+            outerWidth = parseFloat($fixedBox.data('outerWidth'));
+
+            $xRelated.each(function () {
+                marginLeft = isNaN(parseFloat($(this).data('marginLeft'))) ? 0 : parseFloat($(this).data('marginLeft'));
+                $(this).css('margin-left', (outerWidth + marginLeft) + 'px');
+            });
+        }
+
+        //为在fixedbox容器中在data-y-related属性中指定的元素上边补白
+        if (yRelated != undefined) {
+            $yRelated = $(yRelated);
+            outerHeight = parseFloat($fixedBox.data('outerHeight'));
+
+            $yRelated.each(function () {
+                marginTop = isNaN(parseFloat($(this).data('marginTop'))) ? 0 : parseFloat($(this).data('marginTop'));
+                $(this).css('margin-top', (outerHeight + marginTop) + 'px');
+            });
+        }
+    },
+    //移除fixedbox影响的容器补白
+    recoveryRelatedBox: function ($fixedBox) {
+        var xRelated = '',
+            yRelated = '',
+            $xRelated = null,
+            $yRelated = null;
+
+        xRelated = $fixedBox.data('xRelated');
+        yRelated = $fixedBox.data('yRelated');
+
+        //去掉fixedbox容器中在data-x-related属性中指定的元素左边补白
+        if (xRelated != undefined) {
+            $xRelated = $(xRelated);
+
+            $xRelated.each(function () {
+                $(this).css('margin-left', $(this).data('marginLeft'));
+            });
+        }
+
+        //去掉fixedbox容器中在data-y-related属性中指定的元素的上方补白
+        if (yRelated != undefined) {
+            $yRelated = $(yRelated);
+
+            $yRelated.each(function () {
+                $(this).css('margin-Top', $(this).data('marginTop'));
+            });
+        }
+    },
+    //滚动fixedbox
+    scrollFixedBox: function ($fixedBox) {
+        var scrollTop = $(window).scrollTop(),
+            currentY = scrollTop + $(window).height(),
+            parentLimit = 0,
+            bottomY = 0,
+            originalTop = 0,
+            left = 0,
+            width = 0,
+            outerWidth = 0,
+            outerHeight = 0,
+            attrStyle = '',
+            marginLeft = 0,
+            marginTop = 0,
+            $me = null;
+
+        $fixedBox.each(function () {
+            $me = $(this);
+            originalTop = $me.data('top');
+            bottomY = $me.data('bottomY');
+            left = $me.data('left') + 'px';
+            width = $me.data('width') + 'px';
+            attrStyle = $me.data('style');
+            position = $me.data('position');
+            parentLimit=$me.data('parentLimit');
+
+            if (parentLimit != undefined) {
+                parentLimit = $me.parent().offset().top - $(window).height() + (isNaN(parseInt(parentLimit)) ? 0 : parseInt(parentLimit));
+            }
+
+            if (position === undefined) {
+                //当滚动条位置大于fixedbox在正常状态下的位置时，才把该容器转变为fixedbox,反之恢复正常状态
+                if (scrollTop > originalTop) {
+
+                    $me.addClass('m-fixedbox-top');
+                    $me.css({ 'left': left, 'width': width });
+
+                    //fixedbox影响的容器补白
+                    UI.fillRelatedBox($me);
+
+                } else {
+                    $me.removeClass('m-fixedbox-top');
+                    $me.attr('style', attrStyle);
+
+                    //移除fixedbox影响的容器补白
+                    UI.recoveryRelatedBox($me);
+                }
+            } else {
+                //当滚动条位置加浏览器窗体高度小于fixedbox在正常状态下的位置时，才把该容器转变为fixedbox,反之恢复正常状态
+                if (currentY > bottomY) {
+                    $me.removeClass('m-fixedbox-bottom');
+                    $me.attr('style', attrStyle);
+
+                    //移除fixedbox影响的容器补白
+                    UI.recoveryRelatedBox($me);
+                } else {
+                    //如果fixedbox指定了data-parent-limit属性来限制其触发条件，那么只有当滚动条的top大于其限制位置时，才把容器转变为fixedbox
+                    if ((parentLimit != undefined) && (scrollTop < parentLimit)) {
+                        $me.removeClass('m-fixedbox-bottom');
+                        $me.attr('style', attrStyle);
+
+                        //移除fixedbox影响的容器补白
+                        UI.recoveryRelatedBox($me);
+                    } else {
+                        $me.addClass('m-fixedbox-bottom');
+                        $me.css({ 'left': left, 'width': width });
+
+                        //fixedbox影响的容器补白
+                        UI.fillRelatedBox($me);
+                    }
+                }
+            }
+        });
+    },
+    //初始化fixedbox
+    initFixedBox: function ($fixedBox, eventFlag) {
+        if ($fixedBox === undefined) {
+            $fixedBox = $('[data-as="fixedbox"]');
+        }
+
+        UI.initSizeFixedBox($fixedBox);
+        UI.scrollFixedBox($fixedBox);
+
+        if (eventFlag === true) {
+            //绑定浏览器滚动事件
+            $(window).on('lazyScroll.fixedBox', function () {
+                UI.scrollFixedBox($fixedBox);
+            });
+
+            //浏览器resize时重新保存fixedbox的尺寸
+            $(window).on('lazyResize.fixedBox',function () {
+                UI.initSizeFixedBox($fixedBox);
+                UI.scrollFixedBox($fixedBox);
+            });
+        }
+    },
+    //初始化bottombox
+    initBottomBox: function ($bottomBox) {
+        var top = 0,
+            windowHeight = $(window).height(),
+            heightDiff=0,
+            dataParam='';
+
+        $bottomBox.each(function () {
+            top = $(this).offset().top;
+            dataParam = $(this).attr('data-param');
+
+            if (dataParam !== undefined) {
+                dataParam = isNaN(parseInt(dataParam)) ? 0 : parseInt(dataParam);
+            } else {
+                dataParam = 0;
+            }
+
+            heightDiff = windowHeight - top - dataParam;
+
+            if (heightDiff >= 0) {
+                $(this).css('min-height', heightDiff);
+            }
+        })
+    },
+    //初始化js-show-answer
+    initShowAnswers: function () {
+        $('body').on('click.showanswer', '.js-show-answer', function () {
+            var isChecked = $(this).find('input').prop('checked'),
+                $answer = $(this).parent().parent(),
+                $fixedBox = $('.m-box-footer');
+
+            if (isChecked === true) {
+                $answer.css('height', 'auto');
+            } else {
+                $answer.css('height', '');
+            }
+
+            if ($fixedBox.length > 0) {
+                UI.initFixedBox($fixedBox);
+            }
+        });
+    },
+    //初始化得分控件
+    initGrade: function ($grade) {
+        $grade.click(function () {
+            var $radio = $(this).find('input[type="radio"]'),
+                $confirm = $(this).find('.confirm'),
+                radioName ='[name="'+$radio.attr('name')+'"]';
+
+            $radio.prop('checked', true);
+            $confirm.show();
+
+            $(radioName).click(function () {
+                var $parent = $(this).parent();
+
+                if (!$parent.hasClass('u-score')) {
+                    $confirm.hide();
+                }
+            });
+        });
+    },
+    //初始化显示dialog对话框按钮单击事件处理程序
+    initBtnShowDialog: function ($btnShowDialog) {
+        $('body').on('click.btnshowdialog', '[data-toggle="dialog"]', function (e) {
+            var target = $(this).data('target'),
+                $target = $(target),
+                $dialogParent = $(this).parent().parent().parent().parent(),
+                top = $(this).position().top + 20,
+                left = $(this).position().left - 200;
+
+            if ($target.length > 0) {
+                $dialogParent.append($target);
+                $target.css({ 'top': top, 'left': left });
+                $target.show();
+
+                $('body').on('click.fromdialog', function () {
+                    $target.hide();
+                    $('body').off('click.fromdialog');
+                });
+            }
+
+            $target.click(function (event) {
+                event.stopPropagation();
+            });
+        });
+    },
+    //初始化隐藏dialog对话框按钮单击事件处理程序
+    initBtnMissDialog: function () {
+        $('[data-miss="dialog"]').click(function () {
+            $(this).parent().parent().hide();
+            $('body').off('click.fromdialog');
+        });
+    },
+    //初始化选择题
+    initChoiceQuestions: function ($choiceQuestions) {
+        var $optionsBox = $choiceQuestions,
+            optionsBoxWidth = 0;
+
+        //解决IE8在任何元素尺寸改变时导致多次触发window.resize事件问题
+        $(window).off('lazyResize.choice');
+
+        $optionsBox.each(function () {
+            var optionsWidth = 0,
+                $options = null;
+
+            $(this).removeClass('vertical');
+            $options = $(this).find('li');
+            optionsBoxWidth = $(this).innerWidth();
+
+            $options.each(function () {
+                optionsWidth += $(this).outerWidth(true);
+            });
+
+            if (optionsWidth > optionsBoxWidth) {
+                $(this).addClass('vertical');
+            }
+        });
+
+        $(window).on('lazyResize.choice', function () {
+            UI.initChoiceQuestions($choiceQuestions);
+        });
+
+        UI.initFixedBox();
+    },
+    //初始化tab切换按钮
+    initTabBtn: function ($tabBtnBox) {
+        $tabBtnBox.find('.btn').click(function () {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+        });
+    },
+    //初始化自定义单选题
+    initRadioBtn: function () {
+        $('.m-testpaper').on('click', '[data-as="radio-btn"]', function () {
+            var index = $(this).index(),
+                $questionOptions = $(this).parent().parent().find('.question-options'),
+                $relativeOption = $questionOptions.find('li').eq(index);
+
+            //选中按钮
+            $(this).siblings().removeClass('selected');
+            $(this).addClass('selected');
+            //选中选项内容
+            $relativeOption.siblings().removeClass('selected');
+            $relativeOption.addClass('selected');
+        });
+    },
+    //初始化自定义的多选按钮
+    initCheckBoxBtn: function () {
+        $('.m-testpaper').on('click', '[data-as="checkbox-btn"]', function () {
+            var index = $(this).index(),
+                checked = $(this).find('input[type="checkbox"]').prop('checked'),
+                $relativeOption = $(this).parent().parent().find('.question-options li').eq(index);
+
+            if (checked === true) {
+                $(this).addClass('selected');
+                $relativeOption.addClass('selected');
+            } else {
+                $(this).removeClass('selected');
+                $relativeOption.removeClass('selected');
+            }
+        });
+    },
+    //初始化分数控件
+    initScore: function ($score) {
+        var strScore = $score.data('score')+'',
+            html = '',
+            strnum = '';
+
+        if (strScore !== undefined) {
+            for (var i = 0; i < strScore.length; i++) {
+                strnum = strScore.substr(i, 1);
+                if (strnum !== '.') {
+                    html += '<i class="ico ico-' + strnum + '"></i>';
+                } else {
+                    html += '<i class="ico ico-dot"></i>';
+                }
+            }
+        }
+
+        $score.prepend(html);
+    },
+    //初始化过滤选项
+    initFilterTerm: function ($filterTerm) {
+        var height = 0;
+
+        $filterTerm.each(function () {
+            $(this).css('height', 'auto');
+            height = $(this).outerHeight();
+            if (height > 50) {
+                $(this).css('height', '45px');
+                $(this).find('ul').append($('<li class="term-showall js-show-terms"><i class="ico ico-showall"></i></li>'));
+            }
+        })
+
+        //给显示所有过滤选项按钮添加事件
+        $('.filter-term').off('click.filterterm');
+        $('.filter-term').on('click.filterterm', '.js-show-terms', function () {
+            $(this).toggleClass('open');
+            if ($(this).hasClass('open')) {
+                $(this).parent().parent().css('height', 'auto');
+            } else {
+                $(this).parent().parent().css('height', '45px');
+            }
+
+            UI.initFixedBox();
+        });
+    },
+    //初始化章节收缩按钮
+    initChapterExplainBox: function () {
+        $('.js-chapterexplain-box').on('click', '.js-show-chapterexplain', function () {
+            $(this).parent().parent().parent().toggleClass('collapsed').siblings('.m-qtbox').addClass('collapsed');
+        });
+    },
+    //toTop按钮
+    $toTop:$('<a href="#" class="u-totop" title="返回顶部"></a>'),
+    //window滚动事件处理
+    windowScrollHandler: function () {
+        var scrollTop = $(window).scrollTop();
+
+        if ( scrollTop > 500) {
+            $('body').append(this.$toTop);
+        } else {
+            this.$toTop.remove();
+        }
+    },
+    //初始化题号收缩按钮
+    initBtnjToggleNo:function () {
+        $('.js-qnbox').on('click', '.js-btn-toggleno', function () {
+            var $title = $(this).parent().parent(),
+                $siblingTitles = $title.siblings('.m-title');
+
+            $siblingTitles.addClass('collapsed');
+            $title.toggleClass('collapsed');
+        });
+    },
+};
+
+//页面初使化时，检查当前页是否存在相关元素，如果存在，绑定相应的事件
+$(document).ready(function () {
+    var $openFloat = $('[data-toggle="float"]'),
+        $closeFloat = $('[data-dismiss="float"]'),
+        $rsTexts = $('[data-as="rstext"]'),
+        $fixedBox = $('[data-as="fixedbox"]'),
+        $tabFixedBox = $('.tab-pane [data-as="fixedbox"]'),
+        $bottomBox = $('[data-as="bottombox"]'),
+        $showAnswerSwitch = $('.js-show-answer'),
+        $grade = $('[data-as="grade"]'),
+        $btnShowDialog = $('[data-toggle="dialog"]'),
+        $btnMissDialog = $('[data-miss="dialog"]'),
+        $choiceQuestions = $('.m-question .question-options'),
+        $tabBtnBox = $('.js-tabbtn-box'),
+        $radioBtn = $('[data-as="radio-btn"]'),
+        $checkBoxBtn = $('[data-as="checkbox-btn"]'),
+        $score = $('[data-score]'),
+        $filterTerm = $('.m-filters > .filter-term'),
+        $chapterExplainBox = $('.js-chapterexplain-box'),
+        $btnToggleNo = $('.js-btn-toggleno');
+
+    //当页面存在浮窗打开按钮，给该按钮绑定click打开浮窗事件
+    if ($openFloat.length > 0) {
+        $openFloat.click(function (event) {
+            var targetString = $(this).data('target');
+
+            //阻止a元素默认事件
+            event.preventDefault();
+
+            //如按钮没有指定data-target属性,检查其href属性
+            if (typeof targetString === "undefined") {
+                targetString = $(this).attr('href');
+            }
+
+            //当data-target被指定或按钮有href值时，才执行打开浮窗函数
+            if (typeof targetString != "undefined") {
+                UI.openFloat(targetString);
+            }
+        });
+    }
+
+    //给所有的浮窗关闭按钮绑定click关闭浮窗事件
+    if ($closeFloat.length > 0) {
+
+        $closeFloat.click(function () {
+            UI.closeFloat();
+        });
+    }
+
+    //如果存在bottombox容器，页面加载时初始化所有的bottombox容器
+    if ($bottomBox.length > 0) {
+        UI.initBottomBox($bottomBox);
+
+        $(window).on('lazyResize.bottomBox', function () {
+            UI.initBottomBox($bottomBox);
+        });
+    }
+
+    //如果当前页面存在得分控件，页面加载时初始化该控件
+    if ($grade.length > 0) {
+        UI.initGrade($grade);
+    }
+
+    //如果当前页存在显示dialog控件，页面加载时初始化该控件
+    if ($btnShowDialog.length > 0) {
+        UI.initBtnShowDialog();
+    }
+
+    //如果当前页存在隐藏dialog控件，页面加载时初始化该控件
+    if ($btnMissDialog.length > 0) {
+        UI.initBtnMissDialog();
+    }
+
+    //如果当前页存在选择题,页面加载时及resize时初始化选择题
+    if ($choiceQuestions.length > 0) {
+        UI.initChoiceQuestions($choiceQuestions);
+
+        $(window).on('lazyResize.choice', function () {
+            $(window).off('lazyResize.choice');
+            UI.initChoiceQuestions($choiceQuestions);
+        });
+    }
+
+    //如果存在查看答案解析开关(js-show-answer),委托js-show-answer开关的单击事件
+    if ($showAnswerSwitch.length > 0) {
+        UI.initShowAnswers();
+    }
+
+    //如果存在tab按钮容器,页面加载时初始化这些容器中的tab切换按钮
+    if ($tabBtnBox.length > 0) {
+        UI.initTabBtn($tabBtnBox);
+    }
+
+    //如果存在自定义的单选按钮，页面加载时初始化这些按钮
+    if ($radioBtn.length > 0) {
+        UI.initRadioBtn();
+    }
+
+    //如果存在自定义的多选按钮，页面加载时初始化这些按钮
+    if ($checkBoxBtn.length > 0) {
+        UI.initCheckBoxBtn();
+    }
+
+    //如果存在分数控件，页面加载时初始化该控件
+    if ($score.length > 0) {
+        UI.initScore($score);
+    }
+
+    //如果存在过滤条件选项框，页面加载时初始过滤条件容器
+    if ($filterTerm.length > 0) {
+        UI.initFilterTerm($filterTerm);
+    }
+
+    //当页面存在收缩文本,对升缩文本进行初始化
+    if ($rsTexts.length > 0) {
+        UI.initRsText($rsTexts);
+    }
+
+    //当页面存在右侧边容器下有章节说明时，对说面中的收缩按钮初始化
+    if ($chapterExplainBox.length > 0) {
+        UI.initChapterExplainBox();
+    }
+
+    //当页面存在右侧边容器下有题号收缩按钮时，对页面中的题号初始化收缩功能
+    if ($btnToggleNo.length > 0) {
+        UI.initBtnjToggleNo();
+    }
+
+
+    //如果存在fixedbox容器，页面加载时初始化所有的fixedbox容器
+    if ($fixedBox.length > 0) {
+        UI.initFixedBox($fixedBox, true);
+    }
+
+    //如果当前页存在tab-pane标签，且其包含有fixedbox容器，那么在其显示的时候重新初始化fixedbox
+    if ($tabFixedBox.length > 0) {
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function () {
+            var $fixedBox = $('.tab-pane.active').find('[data-as="fixedbox"]');
+            UI.initFixedBox($fixedBox, false);
+        });
+    }
+
+    //显示toTop按钮
+    $(window).on('lazyScroll.toTop', function () {
+        UI.windowScrollHandler();
+    });
+});
+
+var webui = {
+    //计算时间日期选择器的位置
+    getDatePickerPosition: function ($picker) {
+        var top = $picker.offset().top,
+            windownHeight = $(window).height();
+
+        if (windownHeight - top < 300) {
+            return 'top-left';
+        } else {
+            return 'bottom-left';
+        }
+    },
+    //激活时间选择器
+    initTimePicker: function ($datePicker) {
+        $datePicker.on('click.datepicker', function () {
+            var position = webui.getDatePickerPosition($(this));
+
+            $(this).datetimepicker('remove');
+            $(this).datetimepicker({
+                language: 'zh-CN',
+                weekStart: 1,
+                todayBtn: 1,
+                autoclose: 1,
+                todayHighlight: 1,
+                startView: 2,
+                minView: 0,
+                maxView: 1,
+                forceParse: 0,
+                startDate:new Date()
+            });
+            $(this).datetimepicker('show');
+        });
+    },
+    //激活日期选择器
+    initDatePicker: function ($datePicker) {
+        $datePicker.on('click.datepicker', function () {
+            var position = webui.getDatePickerPosition($(this));
+
+            $(this).datetimepicker('remove');
+            $(this).datetimepicker({
+                language: 'zh-CN',
+                weekStart: 1,
+                format: "yyyy-mm-dd",
+                pickerPosition: position,
+                minView: "month",
+                autoclose: 1,
+                todayHighlight: 1
+            });
+            $(this).datetimepicker('show');
+        });
+    },
+    //激活月份选择器
+    initMonthPicker: function ($monthPicker) {
+        $monthPicker.on('click.monthpicker', function () {
+            var position = webui.getDatePickerPosition($(this));
+
+            $(this).datetimepicker('remove');
+            $(this).datetimepicker({
+                language: 'zh-CN',
+                format: 'yyyy-mm',
+                todayBtn: 1,
+                autoclose: 1,
+                pickerPosition: position,
+                startView: 3,
+                minView: 3
+            });
+            $(this).datetimepicker('show');
+        });
+    },
+    //激活年份选择器
+    initYearPicker: function ($yearPicker) {
+        $yearPicker.on('click.yearpicker', function () {
+            var position = webui.getDatePickerPosition($(this));
+
+            $(this).datetimepicker('remove');
+            $(this).datetimepicker({
+                language: 'zh-CN',
+                format: 'yyyy',
+                todayBtn: 1,
+                autoclose: 1,
+                pickerPosition: position,
+                startView: 4,
+                minView: 4
+            });
+            $(this).datetimepicker('show');
+        });
+    },
+    //函数:初始化所有控件
+    init: function () {
+        var $timePicker = $('.js-timepicker'),
+            $datePicker = $('.js-datepicker'),
+            $monthPicker = $('.js-monthpicker'),
+            $yearPicker = $('.js-yearpicker');
+
+        if ($timePicker.length > 0) {
+            webui.initTimePicker($timePicker);
+        }
+
+        if ($datePicker.length > 0) {
+            webui.initDatePicker($datePicker);
+        }
+
+        if ($yearPicker.length > 0) {
+            webui.initYearPicker($yearPicker);
+        }
+
+        if ($monthPicker.length > 0) {
+            webui.initMonthPicker($monthPicker);
+        }
+    }
+}
+
+$(document).ready(function () {
+    webui.init();
+
+    // 激活tooltip
+    $("[data-toggle='tooltip']").tooltip();
+});
+
